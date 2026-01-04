@@ -23,7 +23,8 @@ export function HeroSection() {
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
           <img
-            src="/wild-horse-free.jpg"
+            //src="/wild-horse-free.jpg"
+            src="/injured-racing-horse.jpg"
             alt="Wild horse running free in nature"
             className="w-full h-full object-cover"
             loading="eager"
