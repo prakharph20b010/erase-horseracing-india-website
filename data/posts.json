@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "title": "The Hidden Cost of Horse Racing in India",
+    "excerpt": "Behind the glamour of horse racing lies a tragic reality of injury and death.",
+    "content": "Full article content here...",
+    "slug": "hidden-cost-horse-racing",
+    "image_url": "/horse-racing-track.jpg",
+    "published": true,
+    "published_at": "2024-01-15",
+    "author": "Erase Horseracing India",
+    "created_at": "2024-01-15",
+    "updated_at": "2024-01-15"
+  },
+  {
+    "id": "2",
+    "title": "Racing Injury Statistics Nobody Talks About",
+    "excerpt": "An analysis of documented and undocumented injuries in Indian horse racing.",
+    "content": "Full article content here...",
+    "slug": "racing-injury-statistics",
+    "image_url": "/statistical-analysis.jpg",
+    "published": true,
+    "published_at": "2024-01-10",
+    "author": "Erase Horseracing India",
+    "created_at": "2024-01-10",
+    "updated_at": "2024-01-10"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "name": "Star",
+    "slug": "star-bangalore",
+    "image_url": "/horse-memorial.jpg",
+    "date_of_birth": "2015-01-15",
+    "date_of_death": "2020-06-10",
+    "cause_of_death": "Track injury - leg fracture",
+    "story": "Star was a promising racer until a catastrophic leg injury ended her life at just 5 years old.",
+    "racetrack_id": null,
+    "created_at": "2024-01-01",
+    "updated_at": "2024-01-01"
+  },
+  {
+    "id": "2",
+    "name": "Thunder",
+    "slug": "thunder-delhi",
+    "image_url": "/horse-racing-finish.png",
+    "date_of_birth": "2016-03-20",
+    "date_of_death": "2021-09-05",
+    "cause_of_death": "Collapsed during race",
+    "story": "Thunder collapsed on the track during a race, pushing his body beyond its limits.",
+    "racetrack_id": null,
+    "created_at": "2024-01-01",
+    "updated_at": "2024-01-01"
+  }
+]

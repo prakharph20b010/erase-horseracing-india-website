@@ -1,29 +1,18 @@
 "use client"
 
 import { useState } from "react"
+import type { Racetrack as CanonicalRacetrack } from "@/lib/types"
 import { Card } from "@/components/ui/card"
 
-interface Racetrack {
-  id: string
-  name: string
-  city: string
-  state: string
-  total_deaths: number
-  latitude?: number
-  longitude?: number
-  lat?: number
-  lon?: number
-}
-
-interface DataAndMapSectionProps {
+type DataAndMapSectionProps = {
   totalDeaths: number
-  racetracks: Racetrack[] | null
+  racetracks: CanonicalRacetrack[] | null
 }
 
 export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSectionProps) {
-  const [selectedTrack, setSelectedTrack] = useState<Racetrack | null>(null)
+  const [selectedTrack, setSelectedTrack] = useState<CanonicalRacetrack | null>(null)
 
-  const tracks = racetracks || []
+  const tracks = racetracks ?? []
 
   return (
     <section className="py-20 md:py-32 px-6 bg-background">
@@ -51,10 +40,11 @@ export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSection
 
                 {/* Racetrack markers */}
                 {tracks.map((track) => {
-                  const lat = track.latitude ?? track.lat ?? 20
-                  const lon = track.longitude ?? track.lon ?? 77
+                  // use canonical latitude/longitude with fallbacks
+                  const lat = track.latitude ?? 20
+                  const lon = track.longitude ?? 77
 
-                  // Normalize lat/lon to SVG coordinates
+                  // Normalize lat/lon to SVG coordinates (simple heuristic)
                   const x = 250 + (lon - 77) * 15
                   const y = 200 + (lat - 20) * 15
                   const size = Math.max(8, Math.min(24, (track.total_deaths / Math.max(totalDeaths, 1)) * 40))
@@ -71,7 +61,7 @@ export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSection
                         cy={y}
                         r={size}
                         fill="rgb(220, 38, 38)"
-                        fillOpacity="0.7"
+                        fillOpacity={0.7}
                         className="hover:opacity-100"
                       />
                       <circle
@@ -80,8 +70,8 @@ export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSection
                         r={size}
                         fill="none"
                         stroke="rgb(220, 38, 38)"
-                        strokeWidth="2"
-                        opacity="0"
+                        strokeWidth={2}
+                        opacity={0}
                         className="group-hover:opacity-100"
                       />
                     </g>
@@ -106,6 +96,7 @@ export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSection
           <div className="space-y-3 md:max-h-96 md:overflow-y-auto">
             {tracks.length > 0 ? (
               tracks
+                .slice() // avoid mutating original array
                 .sort((a, b) => b.total_deaths - a.total_deaths)
                 .map((track) => (
                   <Card
@@ -147,3 +138,4 @@ export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSection
     </section>
   )
 }
+

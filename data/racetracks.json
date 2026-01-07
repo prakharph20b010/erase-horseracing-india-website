@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Bangalore Turf Club",
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "latitude": 13.0827,
+    "longitude": 77.6151,
+    "total_deaths": 24
+  },
+  {
+    "id": "2",
+    "name": "Delhi Race Club",
+    "city": "Delhi",
+    "state": "Delhi",
+    "latitude": 28.5244,
+    "longitude": 77.0855,
+    "total_deaths": 18
+  }
+]
