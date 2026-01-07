@@ -1,0 +1,21 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D2691E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Horse head silhouette -->
+  <g fill="url(#grad)">
+    <circle cx="100" cy="60" r="35"/>
+    <path d="M 100 95 Q 85 120 75 140 Q 70 145 75 148 Q 85 145 95 130 L 100 95"/>
+    <path d="M 100 95 Q 115 120 125 140 Q 130 145 125 148 Q 115 145 105 130 L 100 95"/>
+    <ellipse cx="115" cy="50" rx="12" ry="18"/>
+    <ellipse cx="85" cy="50" rx="12" ry="18"/>
+  </g>
+  <!-- Freedom symbol - curved lines -->
+  <g stroke="#2C1810" stroke-width="3" fill="none" opacity="0.6">
+    <path d="M 130 60 Q 150 40 160 20"/>
+    <path d="M 130 75 Q 160 70 180 50"/>
+  </g>
+</svg>
