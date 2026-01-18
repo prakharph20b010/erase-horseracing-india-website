@@ -41,6 +41,13 @@ export default function MemorialsPage() {
             <p className="text-xl text-muted-foreground">
               Each horse had a name, a story, and a life worth remembering.
             </p>
+            
+            <p className="text-base text-muted-foreground">
+      Total memorials recorded:{" "}
+      <span className="font-semibold text-foreground">
+        {memorials.length}
+      </span>
+    </p>
           </div>
         </section>
 
