@@ -19,7 +19,13 @@ function readLocalMemorials(): Horse[] {
 export const dynamic = "error" // enforce static-only
 
 export default function MemorialsPage() {
-  const memorials = readLocalMemorials().slice().reverse()
+  const memorials = readLocalMemorials()
+  .slice()
+  .sort((a, b) => {
+    const da = a.date_of_death ? new Date(a.date_of_death).getTime() : 0
+    const db = b.date_of_death ? new Date(b.date_of_death).getTime() : 0
+    return db - da // newest first
+  })
 
   return (
     <div className="min-h-screen bg-background">
