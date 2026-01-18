@@ -79,6 +79,7 @@ Racehorses are fed unnatural, high-grain diets that disrupt their digestive syst
     icon: "😢",
     image: "/what-is-horseracing/retirement.jpg",
     content: `LIE: Retired racehorses live peacefully on pastures or at sanctuaries.
+
 TRUTH: Retirement is just a word used to sell off the racehorses.
 
 Racehorses are generally “retired” by age 7 or 8 — once they stop turning a profit. Horses with numerous “victories” are sent to stud farms, where they are used to produce “next winning horses.” Others are either abandoned or sold off to riding schools and other places that use them for entertainment. Many are used to pull carriages and give joy rides to tourists. Some are even bled to death for serum.
