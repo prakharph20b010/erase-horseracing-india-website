@@ -462,6 +462,20 @@
   },
 
   {
+  "id": "divine-intuition",
+  "name": "DIVINE INTUITION",
+  "slug": "divine-intuition",
+  "image_url": "/horses/DIVINE%20INTUITION.jpg",
+  "date_of_birth": null,
+  "date_of_death": "2025-09-21",
+  "cause_of_death": "Reared up and fell in the stall, bleeding from left nostril",
+  "story": "Age: 6Y | Color/Sex: b g | Outcome: -",
+  "racetrack_id": "Pune",
+  "created_at": "2026-01-18",
+  "updated_at": "2026-01-18"
+},
+
+  {
     "id": "superluminal",
     "name": "SUPERLUMINAL",
     "slug": "superluminal",
