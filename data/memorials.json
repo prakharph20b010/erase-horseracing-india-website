@@ -1,28 +1,491 @@
 [
   {
-    "id": "1",
-    "name": "Star",
-    "slug": "star-bangalore",
-    "image_url": "/horse-memorial.jpg",
-    "date_of_birth": "2015-01-15",
-    "date_of_death": "2020-06-10",
-    "cause_of_death": "Track injury - leg fracture",
-    "story": "Star was a promising racer until a catastrophic leg injury ended her life at just 5 years old.",
-    "racetrack_id": null,
-    "created_at": "2024-01-01",
-    "updated_at": "2024-01-01"
+    "id": "victory-chant",
+    "name": "VICTORY CHANT",
+    "slug": "victory-chant",
+    "image_url": "/horses/VICTORY%20CHANT.png",
+    "date_of_birth": null,
+    "date_of_death": "2023-11-05",
+    "cause_of_death": "Fracture on its right shoulder",
+    "story": "Age: 4Y | Color/Sex: dkb g | Outcome: Euthanised",
+    "racetrack_id": "Pune",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
   },
+
   {
-    "id": "2",
-    "name": "Thunder",
-    "slug": "thunder-delhi",
-    "image_url": "/horse-racing-finish.png",
-    "date_of_birth": "2016-03-20",
-    "date_of_death": "2021-09-05",
-    "cause_of_death": "Collapsed during race",
-    "story": "Thunder collapsed on the track during a race, pushing his body beyond its limits.",
-    "racetrack_id": null,
-    "created_at": "2024-01-01",
-    "updated_at": "2024-01-01"
+    "id": "mayflower",
+    "name": "MAYFLOWER",
+    "slug": "mayflower",
+    "image_url": "/horses/MAYFLOWER.png",
+    "date_of_birth": null,
+    "date_of_death": "2024-01-01",
+    "cause_of_death": "Collapsed during the race at about 900 metres and died",
+    "story": "Age: 7Y | Color/Sex: dkb m | Outcome: Died",
+    "racetrack_id": "Chennai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "excellent-ray",
+    "name": "EXCELLENT RAY",
+    "slug": "excellent-ray",
+    "image_url": "/horses/EXCELLENT%20RAY.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2024-01-25",
+    "cause_of_death": "Fracture of left scapula",
+    "story": "Age: 5Y | Color/Sex: b h | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "blue-blossom",
+    "name": "BLUE BLOSSOM",
+    "slug": "blue-blossom",
+    "image_url": "/horses/BLUE%20BLOSSOM.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2024-09-02",
+    "cause_of_death": "Fracture of left fore fetlock",
+    "story": "Age: 8Y | Color/Sex: dkb m | Outcome: Euthanised",
+    "racetrack_id": "Mysore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "hallucinate",
+    "name": "HALLUCINATE",
+    "slug": "hallucinate",
+    "image_url": "/horses/HALLUCINATE.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2024-02-11",
+    "cause_of_death": "Multiple fracture of right humerus and scapula",
+    "story": "Age: 6Y | Color/Sex: b m | Outcome: Euthanised",
+    "racetrack_id": "Chennai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "snapper",
+    "name": "SNAPPER",
+    "slug": "snapper",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2024-02-18",
+    "cause_of_death": "Fracture of the left humerus bone",
+    "story": "Age: 3Y | Color/Sex: ch c | Outcome: Euthanised",
+    "racetrack_id": "Chennai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "jordano",
+    "name": "JORDANO",
+    "slug": "jordano",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2024-02-24",
+    "cause_of_death": "Multiple injuries on head, left shoulder, fore arm; died due to shock",
+    "story": "Age: 3Y | Color/Sex: dkb c | Outcome: Died",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "saro-eagle",
+    "name": "SARO EAGLE",
+    "slug": "saro-eagle",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2024-04-07",
+    "cause_of_death": "Complete fracture of right fore cannon bone",
+    "story": "Age: 7Y | Color/Sex: b m | Outcome: Euthanised",
+    "racetrack_id": "Ooty",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "cold-pursuit",
+    "name": "COLD PURSUIT",
+    "slug": "cold-pursuit",
+    "image_url": "/horses/COLD%20PURSUIT.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2024-04-21",
+    "cause_of_death": "Complete fracture of right fore pastern",
+    "story": "Age: 6Y | Color/Sex: gr g | Outcome: Euthanised",
+    "racetrack_id": "Ooty",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "tenali",
+    "name": "TENALI",
+    "slug": "tenali",
+    "image_url": "/horses/TENALI.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2024-07-08",
+    "cause_of_death": "Complete fracture of right hind femur with rupture of major artery",
+    "story": "Age: 7Y | Color/Sex: b g | Outcome: Euthanised",
+    "racetrack_id": "Mysore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "deo-volente",
+    "name": "DEO VOLENTE",
+    "slug": "deo-volente",
+    "image_url": "/horses/DEO%20VOLENTE.png",
+    "date_of_birth": null,
+    "date_of_death": "2024-08-23",
+    "cause_of_death": "Hip fracture",
+    "story": "Age: 3Y | Color/Sex: b f | Outcome: Euthanised",
+    "racetrack_id": "Pune",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "golden-neil",
+    "name": "GOLDEN NEIL",
+    "slug": "golden-neil",
+    "image_url": "/horses/GOLDEN%20NEIL.png",
+    "date_of_birth": null,
+    "date_of_death": "2024-09-14",
+    "cause_of_death": "Broken both fore fetlock joints",
+    "story": "Age: 5Y | Color/Sex: ch g | Outcome: Euthanised",
+    "racetrack_id": "Pune",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "sunny-isles",
+    "name": "SUNNY ISLES",
+    "slug": "sunny-isles",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2025-01-01",
+    "cause_of_death": "Collapsed during the race resulting in severe head injury and hypovolemic shock",
+    "story": "Age: 6Y | Color/Sex: ch m | Outcome: Euthanised",
+    "racetrack_id": "Chennai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "ultimate-striker",
+    "name": "ULTIMATE STRIKER",
+    "slug": "ultimate-striker",
+    "image_url": "/horses/ULTIMATE%20STRIKER.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-01-04",
+    "cause_of_death": "Fracture of left shoulder (scapula)",
+    "story": "Age: 9Y | Color/Sex: b g | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "sand-castles",
+    "name": "SAND CASTLES",
+    "slug": "sand-castles",
+    "image_url": "/horses/SAND%20CASTLES.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-01-19",
+    "cause_of_death": "Right fore lateral sesamoid comminuted fracture with rupture of suspensory apparatus",
+    "story": "Age: 8Y | Color/Sex: b m | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "blue-chip",
+    "name": "BLUE CHIP",
+    "slug": "blue-chip",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2025-03-13",
+    "cause_of_death": "Right knee fracture",
+    "story": "Age: 5Y | Color/Sex: gr h | Outcome: Euthanised",
+    "racetrack_id": "Kolkata",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "fleetwood",
+    "name": "FLEETWOOD",
+    "slug": "fleetwood",
+    "image_url": "/horses/FLEETWOOD.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-03-16",
+    "cause_of_death": "Multiple fractures of carpal bones in the right fore knee",
+    "story": "Age: 4Y | Color/Sex: b f | Outcome: Euthanised",
+    "racetrack_id": "Mumbai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "sweet-legacy",
+    "name": "SWEET LEGACY",
+    "slug": "sweet-legacy",
+    "image_url": "/horses/SWEET%20LEGACY.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-03-16",
+    "cause_of_death": "Complete fracture of right tibia bone",
+    "story": "Age: 5Y | Color/Sex: b m | Outcome: Euthanised",
+    "racetrack_id": "Chennai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "smash-shot",
+    "name": "SMASH SHOT",
+    "slug": "smash-shot",
+    "image_url": "/horses/SMASH%20SHOT.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-01-04",
+    "cause_of_death": "Collapsed and died during the morning track work",
+    "story": "Age: 5Y | Color/Sex: ch g | Outcome: Died",
+    "racetrack_id": "Kolkata",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "amadeus",
+    "name": "AMADEUS",
+    "slug": "amadeus",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2025-05-04",
+    "cause_of_death": "Fractured left fore fetlock joint",
+    "story": "Age: 4Y | Color/Sex: b g | Outcome: Euthanised",
+    "racetrack_id": "Kolkata",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "zacapa",
+    "name": "ZACAPA",
+    "slug": "zacapa",
+    "image_url": "/horses/ZACAPA.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-04-05",
+    "cause_of_death": "Fractured left fore fetlock and right fore shoulder joint",
+    "story": "Age: 7Y | Color/Sex: b g | Outcome: Euthanised",
+    "racetrack_id": "Mumbai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "vijaya-falcon",
+    "name": "VIJAYA FALCON",
+    "slug": "vijaya-falcon",
+    "image_url": "/horses/VIJAYA%20FALCON.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-05-24",
+    "cause_of_death": "Comminuted fracture of left carpal bones",
+    "story": "Age: 7Y | Color/Sex: dkb g | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "mystical-forest",
+    "name": "MYSTICAL FOREST",
+    "slug": "mystical-forest",
+    "image_url": "/horses/MYSTICAL%20FOREST.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-06-22",
+    "cause_of_death": "Acute paraplegia",
+    "story": "Age: 4Y | Color/Sex: b f | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "deus-ex-machina",
+    "name": "DEUS EX MACHINA",
+    "slug": "deus-ex-machina",
+    "image_url": "/horses/DEUS%20EX%20MACHINA.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-06-25",
+    "cause_of_death": "Burst blood vessels and cardiac arrest",
+    "story": "Age: 7Y | Color/Sex: b g | Outcome: Died",
+    "racetrack_id": "Mysore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "horse-bund-school",
+    "name": "A HORSE IN BUND SCHOOL",
+    "slug": "horse-bund-school",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2025-07-01",
+    "cause_of_death": "Unknown",
+    "story": "Age: - | Color/Sex: - | Outcome: Died",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "posthaste",
+    "name": "POSTHASTE",
+    "slug": "posthaste",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2025-07-05",
+    "cause_of_death": "Head injury and bleeding from both nostrils",
+    "story": "Age: 4Y | Color/Sex: dkb f | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "knotty-patton",
+    "name": "KNOTTY PATTON",
+    "slug": "knotty-patton",
+    "image_url": "/horses/KNOTTY%20PATTON.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-07-06",
+    "cause_of_death": "Rupture of left fore suspensory apparatus with irreparable comminuted fracture",
+    "story": "Age: 8Y | Color/Sex: b g | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "horse-in-training",
+    "name": "A HORSE IN TRAINING",
+    "slug": "horse-in-training",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2025-07-07",
+    "cause_of_death": "Collapsed and died during morning workouts",
+    "story": "Age: - | Color/Sex: - | Outcome: Died",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "two-year-old-1",
+    "name": "TWO YEAR OLD",
+    "slug": "two-year-old-1",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2025-07-10",
+    "cause_of_death": "Fracture(s)",
+    "story": "Age: 2Y | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "two-year-old-2",
+    "name": "TWO YEAR OLD",
+    "slug": "two-year-old-2",
+    "image_url": null,
+    "date_of_birth": null,
+    "date_of_death": "2025-07-10",
+    "cause_of_death": "Fracture(s)",
+    "story": "Age: 2Y | Outcome: Euthanised",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "domina",
+    "name": "DOMINA",
+    "slug": "domina",
+    "image_url": "/horses/DOMINA.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-07-20",
+    "cause_of_death": "Collapsed and died",
+    "story": "Age: 7Y | Color/Sex: dkb m | Outcome: Died",
+    "racetrack_id": "Bangalore",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "role-model",
+    "name": "ROLE MODEL",
+    "slug": "role-model",
+    "image_url": "/horses/ROLE%20MODEL.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-09-08",
+    "cause_of_death": "Collapsed at about the 950 metres",
+    "story": "Age: 6Y | Color/Sex: b m | Outcome: -",
+    "racetrack_id": "Hyderabad",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "dazzling-princess",
+    "name": "DAZZLING PRINCESS",
+    "slug": "dazzling-princess",
+    "image_url": "/horses/DAZZLING%20PRINCESS.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-09-20",
+    "cause_of_death": "Complete fracture of right fore fetlock",
+    "story": "Age: 6Y | Color/Sex: b m | Outcome: -",
+    "racetrack_id": "Chennai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "superluminal",
+    "name": "SUPERLUMINAL",
+    "slug": "superluminal",
+    "image_url": "/horses/SUPERLUMINAL.png",
+    "date_of_birth": null,
+    "date_of_death": "2025-10-12",
+    "cause_of_death": "Broken left fore radius bone with open fracture",
+    "story": "Age: 4Y | Color/Sex: b f | Outcome: Euthanised",
+    "racetrack_id": "Pune",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+
+  {
+    "id": "black-magician",
+    "name": "BLACK MAGICIAN",
+    "slug": "black-magician",
+    "image_url": "/horses/BLACK%20MAGICIAN.jpg",
+    "date_of_birth": null,
+    "date_of_death": "2025-11-02",
+    "cause_of_death": "Right shoulder of the colt was fractured",
+    "story": "Age: 2Y | Color/Sex: dkb c | Outcome: Euthanised",
+    "racetrack_id": "Pune",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
   }
 ]
