@@ -19,7 +19,7 @@ function readLocalMemorials(): Horse[] {
 export const dynamic = "error" // enforce static-only
 
 export default function MemorialsPage() {
-  const memorials = readLocalMemorials()
+  const memorials = readLocalMemorials().slice().reverse()
 
   return (
     <div className="min-h-screen bg-background">
