@@ -1,5 +1,5 @@
 "use client"
-import { asset } from "@/lib/asset";
+
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
@@ -24,7 +24,7 @@ export function HeroSection() {
         >
           <img
             //src="/wild-horse-free.jpg"
-            src={asset("/injured-racing-horse.jpg")}
+            src="/injured-racing-horse.jpg"
             alt="Wild horse running free in nature"
             className="w-full h-full object-cover"
             loading="eager"
@@ -34,7 +34,7 @@ export function HeroSection() {
         {/* Right side: Injured racing horse - showing harsh reality */}
         <div className="hidden md:block w-1/3 relative overflow-hidden bg-black/60">
           <img
-            src={asset("/injured-racing-horse.jpg")}
+            src="/injured-racing-horse.jpg"
             alt="Injured horse from racing industry showing the harsh reality"
             className="w-full h-full object-cover"
             loading="eager"
@@ -48,7 +48,7 @@ export function HeroSection() {
         <div className="md:hidden flex w-full h-full absolute inset-0">
           <div className="w-2/3 relative overflow-hidden">
             <img
-              src={asset("/wild-horse-free.jpg")}
+              src="/wild-horse-free.jpg"
               alt="Wild horse running free"
               className="w-full h-full object-cover"
               loading="eager"
@@ -56,7 +56,7 @@ export function HeroSection() {
           </div>
           <div className="w-1/3 relative overflow-hidden bg-black/60">
             <img
-              src={asset("/injured-racing-horse.jpg")}
+              src= "/injured-racing-horse.jpg"
               alt="Injured racing horse"
               className="w-full h-full object-cover"
               loading="eager"
