@@ -21,10 +21,11 @@ export function MemorialGrid({ horses }: MemorialGridProps) {
             <div className="aspect-[4/3] w-full overflow-hidden bg-muted flex items-center justify-center">
               {horse.image_url ? (
                 <img
-                  src={horse.image_url}
+                  src={horse.image_url.replace(/^\/+/, "")}
                   alt={horse.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+
               ) : (
                 <span className="text-sm text-muted-foreground italic">
                   No image available

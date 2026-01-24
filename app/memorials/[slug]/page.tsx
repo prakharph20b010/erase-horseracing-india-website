@@ -81,7 +81,12 @@ export default function MemorialPage({ params }: Props) {
 
             {memorial.image_url && (
               <div className="aspect-video w-full overflow-hidden rounded-lg mb-8">
-                <img src={memorial.image_url} alt={memorial.name} className="w-full h-full object-cover" />
+                <img
+                  src={memorial.image_url.replace(/^\/+/, "")}
+                  alt={memorial.name}
+                  className="w-full h-full object-cover"
+                />
+
               </div>
             )}
 
