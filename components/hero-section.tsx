@@ -45,15 +45,18 @@ export function HeroSection() {
         {/*<div className="absolute top-0 right-0 bottom-0 left-[50%] w-[0.5%] bg-foreground transform -skew-x-2 origin-top-right pointer-events-none" />*/}
         <div className="absolute top-0 bottom-0 left-1/2 w-[2px] bg-black/70 -translate-x-1/2 pointer-events-none" />
         {/* Mobile: Split imagery - clearer on smaller screens */}
-        <div className="md:hidden flex w-full h-full absolute inset-0">
-          <div className="w-1/2 relative overflow-hidden">
-            <img
-              src="wild-horse-free.jpg"
-              alt="Wild horse running free"
-              className="w-full h-full object-cover"
-              loading="eager"
-            />
-          </div>
+        <div className="md:hidden absolute inset-0">
+          <img
+            src="injured-racing-horse.jpg"
+            alt="Horse"
+            className="w-full h-full object-cover"
+          />
+        <div className="absolute inset-0 bg-black/40" />
+        </div>
+          
+          
+          
+          
           <div className="w-1/3 relative overflow-hidden bg-black/60">
             <img
               src= "injured-racing-horse.jpg"
@@ -68,10 +71,10 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-20 container mx-auto max-w-5xl text-center space-y-8">
-        <h1 className="font-serif text-5xl md:text-7xl font-bold text-background leading-tight text-balance">
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-7xl font-bold text-background leading-tight text-balance">
           Every Horse Deserves Freedom
         </h1>
-        <p className="text-xl md:text-2xl text-background/90 max-w-3xl mx-auto leading-relaxed text-pretty">
+        <p className="text-base sm:text-lg md:text-2xl text-background/90 max-w-3xl mx-auto leading-relaxed text-pretty">
           Behind every race is a story of exploitation. Behind every statistic is a life lost.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
