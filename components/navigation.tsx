@@ -12,7 +12,10 @@ export function Navigation() {
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   ]
-
+const basePath =
+  process.env.NODE_ENV === "production"
+    ? "/erase-horseracing-india-website"
+    : ""
   return (
     <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-6">
@@ -23,10 +26,11 @@ export function Navigation() {
           >
             
             <img
-              src="/logo.png"
+              src={`${basePath}/logo.png`}
               alt="Erase Horseracing logo"
               className="h-10 w-auto"
             />
+            
             
             <span className="hidden sm:inline">Erase Horseracing</span>
           </Link>
