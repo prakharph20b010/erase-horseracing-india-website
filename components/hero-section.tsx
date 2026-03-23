@@ -17,45 +17,49 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden bg-foreground">
       <div className="absolute inset-0 flex">
-        {/* Left image */}
+        {/* Left side: Wild horse - healthy and free */}
         <div
           className="hidden md:block w-2/3 relative overflow-hidden"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
           <img
-            src="/injured-racing-horse.jpg"
-            alt="Horse"
+            //src="/wild-horse-free.jpg"
+            src="injured-racing-horse.jpg"
+            alt="Wild horse running free in nature"
             className="w-full h-full object-cover"
+            loading="eager"
           />
         </div>
 
-        {/* Right image */}
-        <div className="hidden md:block w-1/3 relative overflow-hidden">
+        {/* Right side: Injured racing horse - showing harsh reality */}
+        <div className="hidden md:block w-1/3 relative overflow-hidden bg-black/60">
           <img
-            src="/injured-racing-horse.jpg"
-            alt="Horse"
+            src="injured-racing-horse.jpg"
+            alt="Injured horse from racing industry showing the harsh reality"
             className="w-full h-full object-cover"
+            loading="eager"
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
-        {/* Reduced overlay strip */}
-        <div className="absolute top-0 right-0 bottom-0 w-[5%] bg-black/40 pointer-events-none" />
+        <div className="absolute top-0 right-0 bottom-0 w-1/3 bg-foreground transform -skew-x-2 origin-top-right pointer-events-none" />
 
-        {/* Mobile */}
+        {/* Mobile: Split imagery - clearer on smaller screens */}
         <div className="md:hidden flex w-full h-full absolute inset-0">
           <div className="w-2/3 relative overflow-hidden">
             <img
-              src="/wild-horse-free.jpg"
-              alt="Wild horse"
+              src="wild-horse-free.jpg"
+              alt="Wild horse running free"
               className="w-full h-full object-cover"
+              loading="eager"
             />
           </div>
-          <div className="w-1/3 relative overflow-hidden">
+          <div className="w-1/3 relative overflow-hidden bg-black/60">
             <img
-              src="/injured-racing-horse.jpg"
-              alt="Injured horse"
+              src= "injured-racing-horse.jpg"
+              alt="Injured racing horse"
               className="w-full h-full object-cover"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-black/30"></div>
           </div>
@@ -64,22 +68,25 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-20 container mx-auto max-w-5xl text-center space-y-8">
-        <h1 className="text-5xl md:text-7xl font-bold text-white">
+        <h1 className="font-serif text-5xl md:text-7xl font-bold text-background leading-tight text-balance">
           Every Horse Deserves Freedom
         </h1>
-        <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+        <p className="text-xl md:text-2xl text-background/90 max-w-3xl mx-auto leading-relaxed text-pretty">
           Behind every race is a story of exploitation. Behind every statistic is a life lost.
         </p>
-
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="text-lg bg-background text-foreground hover:bg-background/90">
             <Link href="/take-action">
               Take Action
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-
-          <Button asChild size="lg" variant="outline">
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="text-lg bg-transparent text-background border-background hover:bg-background/10"
+          >
             <Link href="/memorials">View Memorials</Link>
           </Button>
         </div>
