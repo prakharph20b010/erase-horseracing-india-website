@@ -19,7 +19,7 @@ export function HeroSection() {
       <div className="absolute inset-0 flex">
         {/* Left side: Wild horse - healthy and free */}
         <div
-          className="hidden md:block w-2/3 relative overflow-hidden"
+          className="hidden md:block w-1/2 relative overflow-hidden"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
           <img
