@@ -17,49 +17,45 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden bg-foreground">
       <div className="absolute inset-0 flex">
-        {/* Left side: Wild horse - healthy and free */}
+        {/* Left image */}
         <div
           className="hidden md:block w-2/3 relative overflow-hidden"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
           <img
-            //src="/wild-horse-free.jpg"
-            src="injured-racing-horse.jpg"
-            alt="Wild horse running free in nature"
+            src="/injured-racing-horse.jpg"
+            alt="Horse"
             className="w-full h-full object-cover"
-            loading="eager"
           />
         </div>
 
-        {/* Right side: Injured racing horse - showing harsh reality */}
-        <div className="hidden md:block w-[45%] relative overflow-hidden bg-black/60">
-          <img45
-            src="injured-racing-horse.jpg"
-            alt="Injured horse from racing industry showing the harsh reality"
+        {/* Right image */}
+        <div className="hidden md:block w-1/3 relative overflow-hidden">
+          <img
+            src="/injured-racing-horse.jpg"
+            alt="Horse"
             className="w-full h-full object-cover"
-            loading="eager"
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
-        <div className="absolute top-0 right-0 bottom-0 w-[5%] bg-foreground transform -skew-x-2 origin-top-right pointer-events-none" />
+        {/* Reduced overlay strip */}
+        <div className="absolute top-0 right-0 bottom-0 w-[5%] bg-black/40 pointer-events-none" />
 
-        {/* Mobile: Split imagery - clearer on smaller screens */}
+        {/* Mobile */}
         <div className="md:hidden flex w-full h-full absolute inset-0">
           <div className="w-2/3 relative overflow-hidden">
             <img
-              src="wild-horse-free.jpg"
-              alt="Wild horse running free"
+              src="/wild-horse-free.jpg"
+              alt="Wild horse"
               className="w-full h-full object-cover"
-              loading="eager"
             />
           </div>
-          <div className="w-[50%] relative overflow-hidden bg-black/60">
+          <div className="w-1/3 relative overflow-hidden">
             <img
-              src= "injured-racing-horse.jpg"
-              alt="Injured racing horse"
+              src="/injured-racing-horse.jpg"
+              alt="Injured horse"
               className="w-full h-full object-cover"
-              loading="eager"
             />
             <div className="absolute inset-0 bg-black/30"></div>
           </div>
@@ -68,25 +64,22 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-20 container mx-auto max-w-5xl text-center space-y-8">
-        <h1 className="font-serif text-5xl md:text-7xl font-bold text-background leading-tight text-balance">
+        <h1 className="text-5xl md:text-7xl font-bold text-white">
           Every Horse Deserves Freedom
         </h1>
-        <p className="text-xl md:text-2xl text-background/90 max-w-3xl mx-auto leading-relaxed text-pretty">
+        <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
           Behind every race is a story of exploitation. Behind every statistic is a life lost.
         </p>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <Button asChild size="lg" className="text-lg bg-background text-foreground hover:bg-background/90">
+          <Button asChild size="lg">
             <Link href="/take-action">
               Take Action
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="text-lg bg-transparent text-background border-background hover:bg-background/10"
-          >
+
+          <Button asChild size="lg" variant="outline">
             <Link href="/memorials">View Memorials</Link>
           </Button>
         </div>
