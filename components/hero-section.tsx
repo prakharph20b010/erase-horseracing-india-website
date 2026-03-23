@@ -53,7 +53,7 @@ export function HeroSection() {
           />
         <div className="absolute inset-0 bg-black/40" />
         </div>
-          
+        </div> {/* ✅ THIS WAS MISSING — closes "absolute inset-0 flex" */}  
           
 
       {/* Content */}
