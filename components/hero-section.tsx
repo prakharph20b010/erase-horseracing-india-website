@@ -55,19 +55,6 @@ export function HeroSection() {
         </div>
           
           
-          
-          
-          <div className="w-1/3 relative overflow-hidden bg-black/60">
-            <img
-              src= "injured-racing-horse.jpg"
-              alt="Injured racing horse"
-              className="w-full h-full object-cover"
-              loading="eager"
-            />
-            <div className="absolute inset-0 bg-black/30"></div>
-          </div>
-        </div>
-      </div>
 
       {/* Content */}
       <div className="relative z-20 container mx-auto max-w-5xl text-center space-y-8">
