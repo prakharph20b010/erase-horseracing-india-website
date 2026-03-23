@@ -32,8 +32,8 @@ export function HeroSection() {
         </div>
 
         {/* Right side: Injured racing horse - showing harsh reality */}
-        <div className="hidden md:block w-1/3 relative overflow-hidden bg-black/60">
-          <img
+        <div className="hidden md:block w-[45%] relative overflow-hidden bg-black/60">
+          <img45
             src="injured-racing-horse.jpg"
             alt="Injured horse from racing industry showing the harsh reality"
             className="w-full h-full object-cover"
@@ -42,7 +42,7 @@ export function HeroSection() {
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
-        <div className="absolute top-0 right-0 bottom-0 w-1/3 bg-foreground transform -skew-x-2 origin-top-right pointer-events-none" />
+        <div className="absolute top-0 right-0 bottom-0 w-[5%] bg-foreground transform -skew-x-2 origin-top-right pointer-events-none" />
 
         {/* Mobile: Split imagery - clearer on smaller screens */}
         <div className="md:hidden flex w-full h-full absolute inset-0">
@@ -54,7 +54,7 @@ export function HeroSection() {
               loading="eager"
             />
           </div>
-          <div className="w-1/3 relative overflow-hidden bg-black/60">
+          <div className="w-[50%] relative overflow-hidden bg-black/60">
             <img
               src= "injured-racing-horse.jpg"
               alt="Injured racing horse"
