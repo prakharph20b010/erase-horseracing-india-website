@@ -21,12 +21,13 @@ export function Navigation() {
             href="/"
             className="flex items-center gap-3 font-serif text-lg font-bold hover:opacity-80 transition-opacity"
           >
-            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
-              <svg className="w-6 h-6 text-primary" viewBox="0 0 200 200" fill="currentColor">
-                <circle cx="100" cy="60" r="25" />
-                <path d="M 100 85 L 90 120 L 80 140 M 100 85 L 110 120 L 120 140" />
-              </svg>
-            </div>
+            
+            <img
+              src="/logo.png"
+              alt="Erase Horseracing logo"
+              className="h-10 w-auto"
+            />
+            
             <span className="hidden sm:inline">Erase Horseracing</span>
           </Link>
 
