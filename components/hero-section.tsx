@@ -42,8 +42,8 @@ export function HeroSection() {
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
-        <div className="absolute top-0 right-0 bottom-0 left-[50%] w-[0.5%] bg-foreground transform -skew-x-2 origin-top-right pointer-events-none" />
-
+        {/*<div className="absolute top-0 right-0 bottom-0 left-[50%] w-[0.5%] bg-foreground transform -skew-x-2 origin-top-right pointer-events-none" />*/}
+        <div className="absolute top-0 bottom-0 left-1/2 w-[2px] bg-black/70 -translate-x-1/2 pointer-events-none" />
         {/* Mobile: Split imagery - clearer on smaller screens */}
         <div className="md:hidden flex w-full h-full absolute inset-0">
           <div className="w-1/2 relative overflow-hidden">
