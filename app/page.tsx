@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import type { Horse, BlogPost, Racetrack } from "@/lib/types"
 import Link from "next/link"
+import { RacetrackMap } from "@/components/racetrack-map"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { HeroSection } from "@/components/hero-section"
