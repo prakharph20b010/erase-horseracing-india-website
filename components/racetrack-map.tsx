@@ -1,84 +1,111 @@
 "use client"
 
+import { useMemo, useState } from "react"
 import type { Racetrack } from "@/lib/types"
 import { Card, CardContent } from "@/components/ui/card"
 import { MapPin, TrendingUp } from "lucide-react"
-import { useState } from "react"
 
 interface RacetrackMapProps {
   racetracks: Racetrack[]
 }
 
-export function RacetrackMap({ racetracks }: RacetrackMapProps) {
-  const [selectedTrack, setSelectedTrack] = useState<Racetrack | null>(null)
+type MapTrack = Racetrack & {
+  latitude?: string | number
+  longitude?: string | number
+}
 
-  // Calculate bounds for the map (India's approximate bounds)
+export function RacetrackMap({ racetracks }: RacetrackMapProps) {
+  const [selectedTrack, setSelectedTrack] = useState<MapTrack | null>(null)
+
+  const tracks = racetracks as MapTrack[]
+
+  const maxDeaths = useMemo(() => {
+    return Math.max(1, ...tracks.map((t) => Number(t.total_deaths ?? 0)))
+  }, [tracks])
+
+  // Approximate India bounds for lat/lng -> percentage positioning
+  // Adjust these slightly if you want to shift dots more precisely.
   const indiaBounds = {
     minLat: 6.5,
-    maxLat: 35.5,
+    maxLat: 35.8,
     minLng: 68,
-    maxLng: 97.5,
+    maxLng: 97.8,
   }
 
-  // Convert lat/lng to percentage for positioning
   const getPosition = (lat: number, lng: number) => {
-    const x = ((lng - indiaBounds.minLng) / (indiaBounds.maxLng - indiaBounds.minLng)) * 100
-    const y = ((indiaBounds.maxLat - lat) / (indiaBounds.maxLat - indiaBounds.minLat)) * 100
-    return { x: Math.max(0, Math.min(100, x)), y: Math.max(0, Math.min(100, y)) }
+    const x =
+      ((lng - indiaBounds.minLng) / (indiaBounds.maxLng - indiaBounds.minLng)) * 100
+    const y =
+      ((indiaBounds.maxLat - lat) / (indiaBounds.maxLat - indiaBounds.minLat)) * 100
+
+    return {
+      x: Math.max(0, Math.min(100, x)),
+      y: Math.max(0, Math.min(100, y)),
+    }
   }
 
-  // Calculate marker size based on deaths
   const getMarkerSize = (deaths: number) => {
-    const maxDeaths = Math.max(...racetracks.map((t) => t.total_deaths))
-    const minSize = 12
-    const maxSize = 32
-    return minSize + (deaths / maxDeaths) * (maxSize - minSize)
+    const value = Math.max(0, Number(deaths) || 0)
+    const scaled = Math.sqrt(value / maxDeaths)
+    const minSize = 14
+    const maxSize = 34
+    return minSize + scaled * (maxSize - minSize)
   }
+
+  const visibleTracks = tracks.filter((track) => {
+    return track.latitude != null && track.longitude != null
+  })
 
   return (
     <div className="space-y-6">
-      {/* Map Container */}
       <Card className="overflow-hidden">
         <CardContent className="p-0">
-          <div className="relative w-full aspect-[16/10] bg-muted/30">
-            {/* Map Background - Simplified India outline */}
-            <div className="absolute inset-0 p-8">
-              <svg viewBox="0 0 100 100" className="w-full h-full opacity-10">
-                <path
-                  d="M 20,10 L 25,15 L 30,12 L 35,15 L 40,10 L 45,15 L 48,12 L 52,15 L 55,20 L 58,25 L 60,30 L 62,40 L 63,50 L 62,60 L 60,70 L 55,75 L 50,78 L 45,80 L 40,82 L 35,80 L 30,78 L 25,75 L 22,70 L 20,65 L 18,60 L 17,50 L 18,40 L 19,30 L 20,20 Z"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  strokeWidth="0.5"
-                />
-              </svg>
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/20">
+            {/* India map background */}
+            <div className="absolute inset-0 flex items-center justify-center p-6">
+              <img
+                src="/india.svg"
+                alt="India map"
+                className="h-full w-full object-contain opacity-80 select-none pointer-events-none"
+                draggable={false}
+              />
             </div>
 
-            {/* Racetrack Markers */}
-            {racetracks.map((track) => {
-              if (!track.latitude || !track.longitude) return null
+            {/* soft overlay to make markers stand out */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background/10 pointer-events-none" />
 
-              const pos = getPosition(Number(track.latitude), Number(track.longitude))
-              const size = getMarkerSize(track.total_deaths)
+            {/* markers */}
+            {visibleTracks.map((track) => {
+              const lat = Number(track.latitude)
+              const lng = Number(track.longitude)
+              if (Number.isNaN(lat) || Number.isNaN(lng)) return null
+
+              const { x, y } = getPosition(lat, lng)
+              const size = getMarkerSize(Number(track.total_deaths ?? 0))
+              const isSelected = selectedTrack?.id === track.id
 
               return (
                 <button
                   key={track.id}
+                  type="button"
                   onClick={() => setSelectedTrack(track)}
-                  className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary rounded-full"
+                  className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full outline-none transition-transform duration-200 hover:scale-110 focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   style={{
-                    left: `${pos.x}%`,
-                    top: `${pos.y}%`,
+                    left: `${x}%`,
+                    top: `${y}%`,
                     width: `${size}px`,
                     height: `${size}px`,
                   }}
-                  aria-label={`${track.name} - ${track.total_deaths} deaths`}
+                  aria-label={`${track.name}, ${track.total_deaths} deaths`}
                 >
                   <div
-                    className={`w-full h-full rounded-full flex items-center justify-center ${
-                      selectedTrack?.id === track.id
-                        ? "bg-destructive shadow-lg ring-2 ring-destructive ring-offset-2"
-                        : "bg-destructive/80 hover:bg-destructive"
-                    }`}
+                    className={[
+                      "flex h-full w-full items-center justify-center rounded-full",
+                      "border border-white/70 shadow-md",
+                      isSelected
+                        ? "bg-destructive ring-4 ring-destructive/20"
+                        : "bg-destructive/80 hover:bg-destructive",
+                    ].join(" ")}
                   >
                     <MapPin className="h-1/2 w-1/2 text-white" />
                   </div>
@@ -86,47 +113,66 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
               )
             })}
 
-            {/* Legend */}
-            <div className="absolute bottom-4 left-4 bg-background/95 backdrop-blur p-4 rounded-lg shadow-lg space-y-2">
+            {/* legend */}
+            <div className="absolute bottom-4 left-4 rounded-lg bg-background/95 p-4 shadow-lg backdrop-blur">
               <div className="flex items-center gap-2 text-sm">
-                <div className="w-4 h-4 rounded-full bg-destructive" />
+                <div className="h-4 w-4 rounded-full bg-destructive" />
                 <span className="text-muted-foreground">Racetrack</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
+              <div className="mt-2 flex items-center gap-2 text-sm">
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
-                <span className="text-muted-foreground">Size = Death count</span>
+                <span className="text-muted-foreground">Circle size = death count</span>
               </div>
             </div>
+
+            {/* empty state */}
+            {visibleTracks.length === 0 && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="rounded-lg bg-background/90 px-4 py-2 text-sm text-muted-foreground shadow">
+                  No coordinates available to plot on the map.
+                </div>
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>
 
-      {/* Selected Track Info */}
       {selectedTrack && (
-        <Card className="border-2 border-primary">
+        <Card className="border-2 border-primary/30">
           <CardContent className="p-6">
-            <div className="flex items-start justify-between mb-4">
+            <div className="flex items-start justify-between gap-4">
               <div>
-                <h3 className="font-serif text-2xl font-bold text-foreground">{selectedTrack.name}</h3>
+                <h3 className="font-serif text-2xl font-bold text-foreground">
+                  {selectedTrack.name}
+                </h3>
                 <p className="text-muted-foreground">
-                  {selectedTrack.city}, {selectedTrack.state}
+                  {selectedTrack.city}
+                  {selectedTrack.state ? `, ${selectedTrack.state}` : ""}
                 </p>
               </div>
+
               <div className="text-right">
-                <div className="font-serif text-3xl font-bold text-destructive">{selectedTrack.total_deaths}</div>
+                <div className="font-serif text-3xl font-bold text-destructive">
+                  {selectedTrack.total_deaths}
+                </div>
                 <p className="text-sm text-muted-foreground">Deaths</p>
               </div>
             </div>
-            {selectedTrack.description && (
-              <p className="text-muted-foreground leading-relaxed">{selectedTrack.description}</p>
-            )}
-            <div className="mt-4 inline-flex items-center gap-1 text-sm">
+
+            {selectedTrack.description ? (
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                {selectedTrack.description}
+              </p>
+            ) : null}
+
+            <div className="mt-4">
               <span
-                className={`px-2 py-1 rounded ${
+                className={[
+                  "inline-flex items-center rounded-full px-3 py-1 text-sm",
                   selectedTrack.status === "active"
                     ? "bg-destructive/10 text-destructive"
-                    : "bg-muted text-muted-foreground"
-                }`}
+                    : "bg-muted text-muted-foreground",
+                ].join(" ")}
               >
                 {selectedTrack.status === "active" ? "Currently Operating" : "Closed"}
               </span>
