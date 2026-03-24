@@ -67,7 +67,7 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#f3f0ea]">
             <div className="absolute inset-0 flex items-center justify-center p-3">
               <img
-                src="/india.svg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/india.svg`}
                 alt="India map"
                 className="h-[92%] w-[92%] object-contain opacity-90 pointer-events-none select-none"
                 draggable={false}

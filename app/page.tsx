@@ -218,7 +218,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
 
-        <DataAndMapSection totalDeaths={totalDeaths} racetracks={racetracks} />
+   
         <section className="py-20 md:py-32 px-6 bg-background">
           <div className="container mx-auto max-w-6xl">
             {/* Heading */}
