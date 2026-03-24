@@ -1,92 +1,94 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import type { Racetrack } from "@/lib/types"
 import { Card, CardContent } from "@/components/ui/card"
 import { MapPin, TrendingUp } from "lucide-react"
+import type { Racetrack } from "@/lib/types"
 
 interface RacetrackMapProps {
   racetracks: Racetrack[]
 }
 
-type MapTrack = Racetrack & {
-  latitude?: string | number
-  longitude?: string | number
+type TrackWithCoords = Racetrack & {
+  lat?: number | string
+  lng?: number | string
+  latitude?: number | string
+  longitude?: number | string
+}
+
+function getNumber(value: unknown) {
+  const n = Number(value)
+  return Number.isFinite(n) ? n : null
 }
 
 export function RacetrackMap({ racetracks }: RacetrackMapProps) {
-  const [selectedTrack, setSelectedTrack] = useState<MapTrack | null>(null)
+  const [selectedTrack, setSelectedTrack] = useState<TrackWithCoords | null>(null)
 
-  const tracks = racetracks as MapTrack[]
+  const tracks = racetracks as TrackWithCoords[]
 
   const maxDeaths = useMemo(() => {
-    return Math.max(1, ...tracks.map((t) => Number(t.total_deaths ?? 0)))
+    const values = tracks.map((t) => getNumber(t.total_deaths) ?? 0)
+    return Math.max(1, ...values)
   }, [tracks])
 
-  // Approximate India bounds for lat/lng -> percentage positioning
-  // Adjust these slightly if you want to shift dots more precisely.
-  const indiaBounds = {
+  // Tune these if dots still need a small shift.
+  const bounds = {
     minLat: 6.5,
-    maxLat: 35.8,
+    maxLat: 37.5,
     minLng: 68,
-    maxLng: 97.8,
+    maxLng: 98,
   }
 
-  const getPosition = (lat: number, lng: number) => {
-    const x =
-      ((lng - indiaBounds.minLng) / (indiaBounds.maxLng - indiaBounds.minLng)) * 100
-    const y =
-      ((indiaBounds.maxLat - lat) / (indiaBounds.maxLat - indiaBounds.minLat)) * 100
+  const project = (lat: number, lng: number) => {
+    const x = ((lng - bounds.minLng) / (bounds.maxLng - bounds.minLng)) * 100
+    const y = ((bounds.maxLat - lat) / (bounds.maxLat - bounds.minLat)) * 100
 
     return {
-      x: Math.max(0, Math.min(100, x)),
-      y: Math.max(0, Math.min(100, y)),
+      x: Math.max(2, Math.min(98, x)),
+      y: Math.max(2, Math.min(98, y)),
     }
   }
 
   const getMarkerSize = (deaths: number) => {
-    const value = Math.max(0, Number(deaths) || 0)
-    const scaled = Math.sqrt(value / maxDeaths)
-    const minSize = 14
-    const maxSize = 34
-    return minSize + scaled * (maxSize - minSize)
+    const scaled = Math.sqrt(Math.max(0, deaths) / maxDeaths)
+    return 10 + scaled * 18
   }
 
   const visibleTracks = tracks.filter((track) => {
-    return track.latitude != null && track.longitude != null
+    const lat = getNumber(track.lat ?? track.latitude)
+    const lng = getNumber(track.lng ?? track.longitude)
+    return lat !== null && lng !== null
   })
 
   return (
     <div className="space-y-6">
       <Card className="overflow-hidden">
         <CardContent className="p-0">
-          <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/20">
-            {/* India map background */}
-            <div className="absolute inset-0 flex items-center justify-center p-6">
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#f3f0ea]">
+            <div className="absolute inset-0 flex items-center justify-center p-3">
               <img
                 src="/india.svg"
                 alt="India map"
-                className="h-full w-full object-contain opacity-80 select-none pointer-events-none"
+                className="h-[92%] w-[92%] object-contain opacity-90 pointer-events-none select-none"
                 draggable={false}
               />
             </div>
 
-            {/* soft overlay to make markers stand out */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background/10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/10 pointer-events-none" />
 
-            {/* markers */}
             {visibleTracks.map((track) => {
-              const lat = Number(track.latitude)
-              const lng = Number(track.longitude)
-              if (Number.isNaN(lat) || Number.isNaN(lng)) return null
+              const lat = getNumber(track.lat ?? track.latitude)
+              const lng = getNumber(track.lng ?? track.longitude)
+              if (lat === null || lng === null) return null
 
-              const { x, y } = getPosition(lat, lng)
-              const size = getMarkerSize(Number(track.total_deaths ?? 0))
+              const { x, y } = project(lat, lng)
+              const deaths = getNumber(track.total_deaths) ?? 0
+              const size = getMarkerSize(deaths)
               const isSelected = selectedTrack?.id === track.id
 
               return (
                 <button
-                  key={track.id}
+                  key={String(track.id ?? track.name)}
                   type="button"
                   onClick={() => setSelectedTrack(track)}
                   className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full outline-none transition-transform duration-200 hover:scale-110 focus:ring-2 focus:ring-primary focus:ring-offset-2"
@@ -96,15 +98,13 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
                     width: `${size}px`,
                     height: `${size}px`,
                   }}
-                  aria-label={`${track.name}, ${track.total_deaths} deaths`}
+                  aria-label={`${track.name}, ${deaths} deaths`}
+                  title={`${track.name} — ${deaths} deaths`}
                 >
                   <div
                     className={[
-                      "flex h-full w-full items-center justify-center rounded-full",
-                      "border border-white/70 shadow-md",
-                      isSelected
-                        ? "bg-destructive ring-4 ring-destructive/20"
-                        : "bg-destructive/80 hover:bg-destructive",
+                      "flex h-full w-full items-center justify-center rounded-full border border-white/70 shadow-md",
+                      isSelected ? "bg-destructive ring-4 ring-destructive/20" : "bg-destructive/80",
                     ].join(" ")}
                   >
                     <MapPin className="h-1/2 w-1/2 text-white" />
@@ -113,7 +113,6 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
               )
             })}
 
-            {/* legend */}
             <div className="absolute bottom-4 left-4 rounded-lg bg-background/95 p-4 shadow-lg backdrop-blur">
               <div className="flex items-center gap-2 text-sm">
                 <div className="h-4 w-4 rounded-full bg-destructive" />
@@ -125,7 +124,6 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
               </div>
             </div>
 
-            {/* empty state */}
             {visibleTracks.length === 0 && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="rounded-lg bg-background/90 px-4 py-2 text-sm text-muted-foreground shadow">
