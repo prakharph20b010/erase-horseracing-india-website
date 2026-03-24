@@ -31,17 +31,24 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
     return Math.max(1, ...values)
   }, [tracks])
 
-  // Tune these if dots still need a small shift.
+  // Tuned for your India SVG placement
   const bounds = {
-    minLat: 6.5,
-    maxLat: 37.5,
+    minLat: 8,
+    maxLat: 37,
     minLng: 68,
-    maxLng: 98,
+    maxLng: 97,
   }
 
+  const basePath =
+    process.env.NEXT_PUBLIC_BASE_PATH || "/erase-horseracing-india-website"
+
   const project = (lat: number, lng: number) => {
-    const x = ((lng - bounds.minLng) / (bounds.maxLng - bounds.minLng)) * 100
-    const y = ((bounds.maxLat - lat) / (bounds.maxLat - bounds.minLat)) * 100
+    const xRaw = (lng - bounds.minLng) / (bounds.maxLng - bounds.minLng)
+    const yRaw = (bounds.maxLat - lat) / (bounds.maxLat - bounds.minLat)
+
+    // Compensate for whitespace inside the SVG
+    const x = xRaw * 80 + 10
+    const y = yRaw * 85 + 5
 
     return {
       x: Math.max(2, Math.min(98, x)),
@@ -65,7 +72,7 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
       <Card className="overflow-hidden">
         <CardContent className="p-0">
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#f3f0ea]">
-            <div className="absolute inset-0 flex items-center justify-center p-3">
+            <div className="absolute inset-0 z-0 flex items-center justify-center p-3">
               <img
                 src="india.svg"
                 alt="India map"
@@ -74,7 +81,7 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
               />
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/10 pointer-events-none" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-background/10 pointer-events-none" />
 
             {visibleTracks.map((track) => {
               const lat = getNumber(track.lat ?? track.latitude)
@@ -91,7 +98,7 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
                   key={String(track.id ?? track.name)}
                   type="button"
                   onClick={() => setSelectedTrack(track)}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full outline-none transition-transform duration-200 hover:scale-110 focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  className="absolute z-20 -translate-x-1/2 -translate-y-1/2 rounded-full outline-none transition-transform duration-200 hover:scale-110 focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   style={{
                     left: `${x}%`,
                     top: `${y}%`,
@@ -104,7 +111,9 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
                   <div
                     className={[
                       "flex h-full w-full items-center justify-center rounded-full border border-white/70 shadow-md",
-                      isSelected ? "bg-destructive ring-4 ring-destructive/20" : "bg-destructive/80",
+                      isSelected
+                        ? "bg-destructive ring-4 ring-destructive/20"
+                        : "bg-destructive/80",
                     ].join(" ")}
                   >
                     <MapPin className="h-1/2 w-1/2 text-white" />
@@ -113,7 +122,7 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
               )
             })}
 
-            <div className="absolute bottom-4 left-4 rounded-lg bg-background/95 p-4 shadow-lg backdrop-blur">
+            <div className="absolute bottom-4 left-4 z-30 rounded-lg bg-background/95 p-4 shadow-lg backdrop-blur">
               <div className="flex items-center gap-2 text-sm">
                 <div className="h-4 w-4 rounded-full bg-destructive" />
                 <span className="text-muted-foreground">Racetrack</span>
@@ -125,7 +134,7 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
             </div>
 
             {visibleTracks.length === 0 && (
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 z-20 flex items-center justify-center">
                 <div className="rounded-lg bg-background/90 px-4 py-2 text-sm text-muted-foreground shadow">
                   No coordinates available to plot on the map.
                 </div>
