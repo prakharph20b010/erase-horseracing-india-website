@@ -33,8 +33,8 @@ export function RacetrackMap({ racetracks }: RacetrackMapProps) {
 
   // Tuned for your India SVG placement
   const bounds = {
-    minLat: 8,
-    maxLat: 37,
+    minLat: 12,
+    maxLat: 32,
     minLng: 68,
     maxLng: 97,
   }
