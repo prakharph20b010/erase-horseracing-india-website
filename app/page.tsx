@@ -218,6 +218,25 @@ export default function HomePage() {
         <HeroSection />
 
         <DataAndMapSection totalDeaths={totalDeaths} racetracks={racetracks} />
+        <section className="py-20 md:py-32 px-6 bg-background">
+          <div className="container mx-auto max-w-6xl">
+            {/* Heading */}
+            <div className="text-center mb-16 md:mb-24">
+              <p className="text-lg text-muted-foreground mb-4 tracking-wide">
+                DOCUMENTED RACEHORSE DEATHS IN INDIA
+              </p>
+              <div className="font-serif text-7xl md:text-9xl font-bold text-destructive">
+                {totalDeaths}+
+              </div>
+            </div>
+
+            {/* Map + list */}
+            <RacetrackMap racetracks={racetracks} />
+
+          </div>
+        </section>
+        
+        
 
         <HomeActionSection />
 
