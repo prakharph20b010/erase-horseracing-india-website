@@ -12,15 +12,17 @@ export const metadata = {
 export default function AboutPage() {
   const teamMembers = [
     {
-      name: "Placeholder Name",
-      role: "Founder & Lead Advocate",
-      bio: "Brief bio goes here. This is template content.",
+      name: "Nitharshni",
+      role: "Founder & President",
+      // bio: "Brief bio goes here. This is template content.",
     },
-    { name: "Placeholder Name", role: "Research Director", bio: "Brief bio goes here. This is template content." },
-    { name: "Placeholder Name", role: "Communications Lead", bio: "Brief bio goes here. This is template content." },
-    { name: "Placeholder Name", role: "Legal Advisor", bio: "Brief bio goes here. This is template content." },
-    { name: "Placeholder Name", role: "Campaign Manager", bio: "Brief bio goes here. This is template content." },
-    { name: "Placeholder Name", role: "Community Organizer", bio: "Brief bio goes here. This is template content." },
+    { name: "Sri Vinaya", role: "VP, Legal", },
+    { name: "Lalitha", role: "VP, Policy", },
+    { name: "Mahesh", role: "VP, Strategy", },
+    { name: "Harini", role: "VP, Finance", },
+    { name: "Soumya", role: "VP, Communications", },
+    { name: "Nicole Arciello", role: "Advisor", bio: "Executive Director of Horseracing Wrongs", },
+    { name: "Sandy Jey", role: "Advisor", bio: "President of Evansville Animal Advocacy", },
   ]
 
   return (
