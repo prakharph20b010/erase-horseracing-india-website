@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react"
 
 export default function WhatIsHorseracingPage() {
   const [expandedIndex, setExpandedIndex] = useState(0)
+  const [revealed, setRevealed] = useState<number[]>([])
 
   const sections = [
     {
@@ -51,6 +52,7 @@ Horses that hesitate to enter are often pushed, tugged, or hit to enter the stal
     {
       title: "Exercise-induced pulmonary hemorrhage",
       image: "/erase-horseracing-india-website/what-is-horseracing/eiph.jpg",
+      blur: true,
       content: `Exercise-induced pulmonary hemorrhage (EIPH) is one of the most common injuries in racehorses. It is bleeding in the lungs that occurs during intense physical activity. This bleeding can cause blood to build up in the lung’s support tissues and airways, making it harder to breathe. “EIPH is unavoidable in horses performing maximally and at high speeds.” – Dr. Warwick M. Bayle at the 2021 American Association of Equine Practitioners’ Convention. On July 11, 2025, Sharan Kumar, the Editor in Chief of Racingpulse, a leading horseracing blog, wrote, “On race days, the sight of horses returning with burst blood vessels is all too common, a sign of the intense strain placed on animals that may not be fully fit or sound.” The fact is that bleeding from the lungs is unavoidable in racehorses. If the most basic action in a “sport” causes pain and suffering, how can banning it not be the only just response?`,
     },
     {
@@ -61,7 +63,9 @@ Horses that hesitate to enter are often pushed, tugged, or hit to enter the stal
     {
       title: "Colic",
       image: "/erase-horseracing-india-website/what-is-horseracing/colic.jpg",
-      content: `Colic is an excruciatingly painful and often fatal condition in horses, caused by severe abdominal pain and intestinal distress...`,
+      content: `Colic is an excruciatingly painful and often fatal condition in horses, caused by severe abdominal pain and intestinal distress. While apologists claim that colic “just happens,” scientific research proves otherwise. A study by Dr. Nathaniel White, professor of surgery at the Marion DuPont Scott Equine Medical Center, identified key risk factors that significantly increase the likelihood of colic: feeding grain before hay, keeping horses confined in stalls for more than 12 hours a day, and training for racing or eventing. Every one of these is a hallmark of the horseracing industry.
+      
+Racehorses are fed unnatural, high-grain diets that disrupt their digestive systems, confined for up to 23 hours a day, and subjected to extreme physical and emotional stress from transport, harsh training, and racing. These conditions make colic not a coincidence but a predictable consequence of the industry’s neglect. If racing truly cared about horses, it would not impose on them a lifestyle scientifically proven to cause pain and death. In this light, calling a racehorse who dies of colic an “industry casualty” is not unfair — it’s the only truthful description.`,
     },
     {
   title: "Retirement",
@@ -89,7 +93,7 @@ The system’s purpose is not the well-being of the horses but the mass producti
 },
     {
       title: "Limb injury, fractures, and euthanasia",
-      youtubeId: "https://www.youtube.com/shorts/g_V2cRlchT8",
+      youtubeId: "g_V2cRlchT8",
       content: `For over 300 years, the racehorses have been selectively bred to have lighter bones that make them run faster, and when horses run at breakneck speeds, their limbs experience high repetitive stress, which results in injuries. The most common limb injuries are on the lower limbs – fetlock, cannon, and/or pastern, and surviving limb injuries means living the rest of their lives in lameness. 
       
 Horses who succumb to fractures are generally euthanized, and this euthanasia is not at all peaceful, as that done on companion animals. Horses experience immense pain due to the broken bones, and they bleed, fear, and agonize as they breathe their last. Nobody to comfort and no goodbyes. Just death. `,
@@ -99,14 +103,23 @@ Horses who succumb to fractures are generally euthanized, and this euthanasia is
       image: "/erase-horseracing-india-website/what-is-horseracing/sudden-death.jpg",
       content: `In horseracing, horses as young as 3 years old collapse and die on the track, during training, or in the stalls. 
 In 2024, 
+
 MAYFLOWER, a 7 year old horse, collapsed and died on the Chennai racetrack. 
+
 JORDANO, a 3 year old horse, tried to escape, sustained multiple injuries, and died due to shock just before his first race at the Bangalore racecourse. 
+
 In 2025, 
+
 SMASH SHOT, a 5 year old horse, collapsed and died during the morning track work at the Kolkata racecourse. 
+
 DEUS EX MACHINA, a 7 year old horse, suffered a cardiac arrest during the race and died on the track in Mysore. 
+
 In July, an unknown racehorse collapsed and died during training at the Bangalore racecourse. 
+
 A few days later, DOMINA, a 7 year old horse, collapsed and died a few meters before the finish line in Bangalore.
+
 And these are what we know so far!
+
 Heart attacks and sudden deaths can be caused by exercise-induced arrhythmias (irregular heartbeats) and heart murmurs (abnormal heart sounds), in which horses often appear completely fine—until they’re not. How would you react if adolescent kids were dying of cardiovascular disease? That’s how serious this is. `,
     },
     {
@@ -157,8 +170,27 @@ Boycott horseracing — for the horses.`,
                 {expandedIndex === idx && (
                   <div className="px-6 pb-6 space-y-6">
                     {section.image && (
-                      <img src={section.image} className="w-full rounded-lg" />
-                    )}
+  <div className="relative">
+    <img
+      src={section.image}
+      alt={section.title}
+      className={`w-full rounded-lg object-cover transition-all duration-300 ${
+        section.blur && !revealed.includes(idx) ? "blur-md" : ""
+      }`}
+    />
+
+    {section.blur && !revealed.includes(idx) && (
+      <button
+        onClick={() => setRevealed((prev) => [...prev, idx])}
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        <span className="bg-black/70 text-white text-sm px-4 py-2 rounded">
+          Sensitive content — tap to reveal
+        </span>
+      </button>
+    )}
+  </div>
+)}
 
                     {section.youtubeId && (
                       <iframe
