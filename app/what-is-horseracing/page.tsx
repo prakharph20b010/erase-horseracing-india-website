@@ -169,10 +169,15 @@ Boycott horseracing — for the horses.`,
                     )}
 
                     <div className="space-y-4">
-                      {section.content.split("\n\n").map((p, i) => (
-                        <p key={i}>{p}</p>
-                      ))}
-                    </div>
+  {section.content.split("\n\n").map((p, i) => (
+    <p
+      key={i}
+      className="text-lg text-muted-foreground leading-relaxed tracking-normal"
+    >
+      {p}
+    </p>
+  ))}
+</div>
                   </div>
                 )}
               </div>
