@@ -330,22 +330,22 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
+  
   {
   "id": "zephyr",
   "name": "ZEPHYR",
   "slug": "zephyr",
   "image_url": "/horses/zephyr.png",
   "date_of_birth": null,
-  "date_of_death": "2026-04-01",
+  "date_of_death": "2026-01-04",
   "cause_of_death": "Gum injury and fractured jaw",
   "story": "Age: 4Y | Color/Sex: b f | Outcome: -",
   "racetrack_id": "Mumbai",
   "created_at": "2026-01-18",
   "updated_at": "2026-01-18"
-  },
+},
   
-  {
+{
   "id": "hilma-klint",
   "name": "HILMA KLINT",
   "slug": "hilma-klint",
@@ -357,9 +357,9 @@
   "racetrack_id": "Mumbai",
   "created_at": "2026-01-18",
   "updated_at": "2026-01-18"
-  },
+},
   
-  {
+{
   "id": "medusa",
   "name": "MEDUSA",
   "slug": "medusa",
@@ -371,6 +371,6 @@
   "racetrack_id": "Mumbai",
   "created_at": "2026-01-18",
   "updated_at": "2026-01-18"
-  }
+}
 ]
 
