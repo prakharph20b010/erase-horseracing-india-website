@@ -33,9 +33,9 @@ Whips only cause fear and pain. It is not an encouragement. It is a threat to hu
 Far from the illusion of a “cooperative” racehorse prancing eagerly at the gate, the behaviours we see — wide eyes, gaping mouths, teeth grinding, salivation, tongue lolling, head shaking, and tail swishing — are not signs of excitement but of agony. These are horses desperately reacting to pain they cannot escape. When the industry calls this “communication,” it conceals a harsh reality: horses are not willing participants but terrified, helpless victims forced to obey through pain.`,
     },
     {
-      title: "Concrete Stalls and Psychological Stress",
+      title: "Concrete stalls and psychological stress",
       youtubeId: "BjqsDhaw_4E",
-      content: `A standard practice in the horseracing industry is to confine horses in concrete stalls for 21-23 hours a day, every single day. This can cause horses to suffer from abdominal pain, respiratory problems, obsessive pacing, cribbing, head shaking, weaving, digging, kicking, and self-mutilation. Horses are social animals. If allowed, they will spend > 60% of their day foraging and the remaining time grooming, playing, and resting with each other. Legally in India, race horses can be “housed in stables admeasuring 12ft X 12ft”, and that is mentioned as adequate. But, is it? Those who put their horses in these stables should ask themselves if they would confine their 5-year-old child in a room barely large enough for them to turn around — for 23 hours a day? If not, then why horses?`,
+      content: `A standard practice in the horseracing industry is to confine horses in concrete stalls for 21-23 hours a day, every single day. This can cause horses to suffer from abdominal pain, respiratory problems, obsessive pacing, cribbing, head shaking, weaving, digging, kicking, and self-mutilation. Horses are social animals. If allowed, they will spend >60% of their day foraging and the remaining time grooming, playing, and resting with each other. Legally in India, race horses can be “housed in stables admeasuring 12ft X 12ft”, and that is mentioned as adequate. But, is it? Those who put their horses in these stables should ask themselves if they would confine their 5-year-old child in a room barely large enough for them to turn around — for 23 hours a day? If not, then why horses?`,
     },
     {
       title: "Starting gates",
@@ -63,14 +63,15 @@ Horses that hesitate to enter are often pushed, tugged, or hit to enter the stal
     {
       title: "Colic",
       image: "/erase-horseracing-india-website/what-is-horseracing/colic.jpg",
-      content: `Colic is an excruciatingly painful and often fatal condition in horses, caused by severe abdominal pain and intestinal distress. While apologists claim that colic “just happens,” scientific research proves otherwise. A study by Dr. Nathaniel White, professor of surgery at the Marion DuPont Scott Equine Medical Center, identified key risk factors that significantly increase the likelihood of colic: feeding grain before hay, keeping horses confined in stalls for more than 12 hours a day, and training for racing or eventing. Every one of these is a hallmark of the horseracing industry.
+      content: `Colic is an excruciatingly painful and often fatal condition in horses, caused by severe abdominal pain and intestinal distress. While apologists claim that colic “just happens,” scientific research proves otherwise. A study by Dr. Nathaniel White, professor of surgery at the Marion DuPont Scott Equine Medical Center, identified key risk factors that significantly increase the likelihood of colic: feeding grain before hay, keeping horses confined in stalls for more than 12 hours a day, and training for racing or eventing. Every one of these is a hallmark of the horseracing industry. 
       
-Racehorses are fed unnatural, high-grain diets that disrupt their digestive systems, confined for up to 23 hours a day, and subjected to extreme physical and emotional stress from transport, harsh training, and racing. These conditions make colic not a coincidence but a predictable consequence of the industry’s neglect. If racing truly cared about horses, it would not impose on them a lifestyle scientifically proven to cause pain and death. In this light, calling a racehorse who dies of colic an “industry casualty” is not unfair — it’s the only truthful description.`,
+      Racehorses are fed unnatural, high-grain diets that disrupt their digestive systems, confined for up to 23 hours a day, and subjected to extreme physical and emotional stress from transport, harsh training, and racing. These conditions make colic not a coincidence but a predictable consequence of the industry’s neglect. If racing truly cared about horses, it would not impose on them a lifestyle scientifically proven to cause pain and death. In this light, calling a racehorse who dies of colic an “industry casualty” is not unfair — it’s the only truthful description.`,
     },
     {
   title: "Retirement",
   image: "/erase-horseracing-india-website/what-is-horseracing/retirement.jpg",
   content: `LIE: Retired racehorses live peacefully on pastures or at sanctuaries.
+
 TRUTH: Retirement is just a word used to sell off the racehorses.
 
 Racehorses are generally “retired” by age 7 or 8 — once they stop turning a profit. Horses with numerous “victories” are sent to stud farms, where they are used to produce “next winning horses.” Others are either abandoned or sold off to riding schools and other places that use them for entertainment. Many are used to pull carriages and give joy rides to tourists. Some are even bled to death for serum.
@@ -96,7 +97,7 @@ The system’s purpose is not the well-being of the horses but the mass producti
       youtubeId: "g_V2cRlchT8",
       content: `For over 300 years, the racehorses have been selectively bred to have lighter bones that make them run faster, and when horses run at breakneck speeds, their limbs experience high repetitive stress, which results in injuries. The most common limb injuries are on the lower limbs – fetlock, cannon, and/or pastern, and surviving limb injuries means living the rest of their lives in lameness. 
       
-Horses who succumb to fractures are generally euthanized, and this euthanasia is not at all peaceful, as that done on companion animals. Horses experience immense pain due to the broken bones, and they bleed, fear, and agonize as they breathe their last. Nobody to comfort and no goodbyes. Just death. `,
+      Horses who succumb to fractures are generally euthanized, and this euthanasia is not at all peaceful, as that done on companion animals. Horses experience immense pain due to the broken bones, and they bleed, fear, and agonize as they breathe their last. Nobody to comfort and no goodbyes. Just death. `,
     },
     {
       title: "Sudden death",
