@@ -36,7 +36,7 @@ export default function AboutPage() {
           </div>
           <div className="container mx-auto max-w-4xl text-center space-y-6 relative z-10">
             <h1 className="font-serif text-4xl md:text-6xl font-bold text-foreground text-balance">
-              About Our Mission
+              About
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               We are a grassroots movement dedicated to ending the exploitation of horses in India's racing industry.
@@ -99,7 +99,7 @@ export default function AboutPage() {
               </p>
               <p>
                 The industry calls deaths "accidents" and injuries "part of the sport." But when horses die at a rate of
-                one every nine days across Indian tracks, when catastrophic injuries are routine, when horses race while
+                hundreds every year across Indian tracks, when catastrophic injuries are routine, when horses race while
                 injured or medicated — this isn't sport. It's abuse, dressed up in tradition and spectacle.
               </p>
               <p>
@@ -158,10 +158,6 @@ export default function AboutPage() {
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16 space-y-4">
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground">Meet Our Team</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Dedicated individuals working to end horse racing in India
-              </p>
-              <p className="text-sm text-muted-foreground italic">Template content - Replace with real team members</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -181,13 +177,6 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-12 p-8 rounded-2xl bg-muted/30 border border-border/40 text-center">
-              <p className="text-muted-foreground">
-                <span className="font-semibold">Clearly marked as replaceable content.</span> Update team member cards
-                with real names, roles, photos, and bios.
-              </p>
             </div>
           </div>
         </section>
