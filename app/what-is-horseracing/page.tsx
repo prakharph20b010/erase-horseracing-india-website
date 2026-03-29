@@ -17,7 +17,7 @@ This report highlights most of the major forms of cruelty in horseracing, though
     },
     {
       title: "Whipping",
-      image: "/what-is-horseracing/whipping.jpg",
+      image: "/erase-horseracing-india-website/what-is-horseracing/whipping.jpg",
       content: `In a 2020 study published in Animals, Professor McGreevy and colleagues examined whether horses would likely feel as much pain as humans would when whipped. The results revealed “no significant difference” between humans and horses in the concentration of nerve endings in the outer layers of skin, nor any difference in the thickness of this skin layer. “This was not surprising, as horses, like humans, need robust yet sensitive skin to respond to touch, say, from flying insects or other horses,” said Professor McGreevy.
 
 Whips don’t make horses run faster.
@@ -26,7 +26,7 @@ Whips only cause fear and pain. It is not an encouragement. It is a threat to hu
     },
     {
       title: "Mouth bits",
-      image: "/what-is-horseracing/mouth-bits.jpg",
+      image: "/erase-horseracing-india-website/what-is-horseracing/mouth-bits.jpg",
       content: `The things they force into racehorses’ mouths — mouth bits, tongue ties, lip chains — and the numerous reports of “sore oral commissures” in racing incident logs cannot be ignored. The bit, often defended as a “tool of communication,” is in reality a cruel instrument of control. Its pressure on the horse’s richly innervated mouth tissues induces acute and immediate pain, often so intense it can override all other sensations — even fear. A 2020 study by David J. Mellor in Animals explained how horses show a strong aversion to bits, which can cause intense breathlessness, panic, and anxiety. The bit’s placement also interferes with a horse’s ability to breathe freely, producing sensations of suffocation that drive fear and distress.
 
 Far from the illusion of a “cooperative” racehorse prancing eagerly at the gate, the behaviours we see — wide eyes, gaping mouths, teeth grinding, salivation, tongue lolling, head shaking, and tail swishing — are not signs of excitement but of agony. These are horses desperately reacting to pain they cannot escape. When the industry calls this “communication,” it conceals a harsh reality: horses are not willing participants but terrified, helpless victims forced to obey through pain.`,
@@ -45,12 +45,12 @@ Horses that hesitate to enter are often pushed, tugged, or hit to enter the stal
     },
     {
       title: "Back pain",
-      image: "/what-is-horseracing/back-pain.jpg",
+      image: "/erase-horseracing-india-website/what-is-horseracing/back-pain.jpg",
       content: `Horses reach their adult size at 2 years old, and they are ridden with 50-60 kg on their back during training and racing. However, their backbone is not mature until 5 years old. “Back pain is one of the most common syndromes in ridden horses,” and “90% of flat racehorses exhibit clinical signs of back pain” – Domańska-Kruppa et al. in Journal Animals in 2024. In simple words, horses aren't meant to be ridden or raced.`,
     },
     {
       title: "Exercise-induced pulmonary hemorrhage",
-      image: "/what-is-horseracing/eiph.jpg",
+      image: "/erase-horseracing-india-website/what-is-horseracing/eiph.jpg",
       content: `Exercise-induced pulmonary hemorrhage (EIPH) is one of the most common injuries in racehorses. It is bleeding in the lungs that occurs during intense physical activity. This bleeding can cause blood to build up in the lung’s support tissues and airways, making it harder to breathe. “EIPH is unavoidable in horses performing maximally and at high speeds.” – Dr. Warwick M. Bayle at the 2021 American Association of Equine Practitioners’ Convention. On July 11, 2025, Sharan Kumar, the Editor in Chief of Racingpulse, a leading horseracing blog, wrote, “On race days, the sight of horses returning with burst blood vessels is all too common, a sign of the intense strain placed on animals that may not be fully fit or sound.” The fact is that bleeding from the lungs is unavoidable in racehorses. If the most basic action in a “sport” causes pain and suffering, how can banning it not be the only just response?`,
     },
     {
@@ -60,9 +60,31 @@ Horses that hesitate to enter are often pushed, tugged, or hit to enter the stal
     },
     {
       title: "Colic",
-      image: "/what-is-horseracing/colic.jpg",
+      image: "/erase-horseracing-india-website/what-is-horseracing/colic.jpg",
       content: `Colic is an excruciatingly painful and often fatal condition in horses, caused by severe abdominal pain and intestinal distress...`,
     },
+    {
+  title: "Retirement",
+  image: "/erase-horseracing-india-website/what-is-horseracing/retirement.jpg",
+  content: `LIE: Retired racehorses live peacefully on pastures or at sanctuaries.
+TRUTH: Retirement is just a word used to sell off the racehorses.
+
+Racehorses are generally “retired” by age 7 or 8 — once they stop turning a profit. Horses with numerous “victories” are sent to stud farms, where they are used to produce “next winning horses.” Others are either abandoned or sold off to riding schools and other places that use them for entertainment. Many are used to pull carriages and give joy rides to tourists. Some are even bled to death for serum.
+
+In May 2025, after 8 horses died in Jabalpur, the Madhya Pradesh state government ordered a probe into how 57 racing horses from Hyderabad had suddenly landed up in Jabalpur. Following a complaint by a Jaipur polo player against HithaNet India Pvt Ltd at the Hyderabad Race Club, regarding the sick condition of the racehorses, they were covertly transported from Hyderabad to Raipura village in Jabalpur, Madhya Pradesh, without the necessary medical and transport clearances. This is an example of the prevalent negligence of the ex-racehorses. They were locked up and starved to death.
+
+They are simply sold off like slaves from one abusive industry to another. There is no escape from exploitation and it is never-ending suffering for the horses.`,
+},
+
+{
+  title: "Breeding",
+  image: "/erase-horseracing-india-website/what-is-horseracing/breeding.jpg",
+  content: `Breeding in the horseracing industry involves a series of deeply unnatural and distressing practices for both mares and stallions. Mares, whose reproductive cycles are manipulated with artificial lighting and hormones, are restrained during mating with lip twitches, and breeding hobbles or boots to prevent resistance during mating, leaving them unable to reject the stallion’s advances. Their tails are bandaged or shaved, and attendants often physically guide the stallion’s penis into the mare while holding up one of her legs to immobilize her further. This forced restraint ensures compliance, not consent, turning what should be a natural process into a controlled and invasive procedure.
+
+Stallions, meanwhile, endure a regimented and lonely existence—isolated from other horses and made to mate multiple times a day during the breeding season. They are trained to mount mares on command, their natural courtship behaviors entirely suppressed for speed and efficiency. Even “teaser” ponies are used to test mares’ receptiveness, exposing them to the same stressful conditions.
+
+The system’s purpose is not the well-being of the horses but the mass production of future racehorses. Every stage—from hormonal manipulation to physical restraint—reflects how the industry treats horses as reproductive tools rather than sentient beings capable of fear and pain.`,
+},
     {
       title: "Limb injury, fractures, and euthanasia",
       youtubeId: "g_V2cRlchT8",
@@ -70,7 +92,7 @@ Horses that hesitate to enter are often pushed, tugged, or hit to enter the stal
     },
     {
       title: "Sudden death",
-      image: "/what-is-horseracing/sudden-death.jpg",
+      image: "/erase-horseracing-india-website/what-is-horseracing/sudden-death.jpg",
       content: `In horseracing, horses as young as 3 years old collapse and die...`,
     },
     {
@@ -86,6 +108,20 @@ Boycott horseracing — for the horses.`,
       <Navigation />
 
       <main>
+        <section className="py-20 md:py-32 px-6 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 border-b relative overflow-hidden">
+  <div className="absolute inset-0 opacity-30">
+    <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+    <div className="absolute bottom-0 left-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+  </div>
+  <div className="container mx-auto max-w-4xl text-center space-y-6 relative z-10">
+    <h1 className="font-serif text-5xl md:text-6xl font-bold text-foreground">
+      What Is Horseracing?
+    </h1>
+    <p className="text-xl text-muted-foreground leading-relaxed">
+      An educational deep dive into the practices, harms, and realities behind this industry
+    </p>
+  </div>
+</section>
         <section className="py-20 md:py-32 px-6">
           <div className="container mx-auto max-w-4xl space-y-4">
             {sections.map((section, idx) => (
