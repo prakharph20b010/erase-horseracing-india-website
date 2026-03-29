@@ -83,17 +83,31 @@ They are simply sold off like slaves from one abusive industry to another. There
 
 Stallions, meanwhile, endure a regimented and lonely existence—isolated from other horses and made to mate multiple times a day during the breeding season. They are trained to mount mares on command, their natural courtship behaviors entirely suppressed for speed and efficiency. Even “teaser” ponies are used to test mares’ receptiveness, exposing them to the same stressful conditions.
 
+The industry says the Thoroughbred horses are meant to race, since they are selectively bred with traits that make them “the next best winning horse” for centuries. Because the perfect racehorse has to be both fast and light, breeding has selected for Thoroughbreds with huge muscles but light bones. Sally Jenkins, the Washington Post’s sports columnist, called Thoroughbreds "the heart of a locomotive on champagne-glass ankles", and in the 2008 article, she mentioned that while Thoroughbreds have become faster over the years, they have also grown more fragile. “According to several estimates, there are 1.5 career-ending breakdowns for every 1,000 racing starts in the United States. That's an average of two per day,” she added. This remains true after 2 decades. Animal rights organisations in the USA and Australia have been reporting an increasing number of such horse deaths year after year.
+
 The system’s purpose is not the well-being of the horses but the mass production of future racehorses. Every stage—from hormonal manipulation to physical restraint—reflects how the industry treats horses as reproductive tools rather than sentient beings capable of fear and pain.`,
 },
     {
       title: "Limb injury, fractures, and euthanasia",
-      youtubeId: "g_V2cRlchT8",
-      content: `For over 300 years, the racehorses have been selectively bred...`,
+      youtubeId: "https://www.youtube.com/shorts/g_V2cRlchT8",
+      content: `For over 300 years, the racehorses have been selectively bred to have lighter bones that make them run faster, and when horses run at breakneck speeds, their limbs experience high repetitive stress, which results in injuries. The most common limb injuries are on the lower limbs – fetlock, cannon, and/or pastern, and surviving limb injuries means living the rest of their lives in lameness. 
+      
+Horses who succumb to fractures are generally euthanized, and this euthanasia is not at all peaceful, as that done on companion animals. Horses experience immense pain due to the broken bones, and they bleed, fear, and agonize as they breathe their last. Nobody to comfort and no goodbyes. Just death. `,
     },
     {
       title: "Sudden death",
       image: "/erase-horseracing-india-website/what-is-horseracing/sudden-death.jpg",
-      content: `In horseracing, horses as young as 3 years old collapse and die...`,
+      content: `In horseracing, horses as young as 3 years old collapse and die on the track, during training, or in the stalls. 
+In 2024, 
+MAYFLOWER, a 7 year old horse, collapsed and died on the Chennai racetrack. 
+JORDANO, a 3 year old horse, tried to escape, sustained multiple injuries, and died due to shock just before his first race at the Bangalore racecourse. 
+In 2025, 
+SMASH SHOT, a 5 year old horse, collapsed and died during the morning track work at the Kolkata racecourse. 
+DEUS EX MACHINA, a 7 year old horse, suffered a cardiac arrest during the race and died on the track in Mysore. 
+In July, an unknown racehorse collapsed and died during training at the Bangalore racecourse. 
+A few days later, DOMINA, a 7 year old horse, collapsed and died a few meters before the finish line in Bangalore.
+And these are what we know so far!
+Heart attacks and sudden deaths can be caused by exercise-induced arrhythmias (irregular heartbeats) and heart murmurs (abnormal heart sounds), in which horses often appear completely fine—until they’re not. How would you react if adolescent kids were dying of cardiovascular disease? That’s how serious this is. `,
     },
     {
       title: "Let’s end these tragedies by ending horseracing",
