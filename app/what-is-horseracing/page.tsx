@@ -38,7 +38,6 @@ Far from the illusion of a “cooperative” racehorse prancing eagerly at the g
   },
   {
     title: "Starting gates",
-    // icon: "🚪",
     youtubeId: "https://www.youtube.com/shorts/KbvMzKXh_5w",
     content: `Injuries at the starting gates are all too common. Horses are hardwired to avoid tight, enclosed spaces where they can’t see escape routes. A starting gate is narrow, metallic, loud, and confining; everything that triggers a horse’s flight instinct. The clanging of the metal gates, shouting handlers, loudspeakers, and the presence of other stressed horses all increase anxiety. When the gates open suddenly with a loud bang, many horses panic, rear, or leap sideways.
 
