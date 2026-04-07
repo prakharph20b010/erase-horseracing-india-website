@@ -1,7 +1,7 @@
 ﻿import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { AlertTriangle } from "lucide-react"
-import InteractiveIndiaMap from "@/components/interactive-india-map"
+import InteractiveIndiaMap from "@/components/interactive-india-map.client"
 import content from "@/data/pages/killing-map.json"
 import type { Racetrack } from "@/lib/types"
 import { EditableText } from "@/components/editable/editable-text"

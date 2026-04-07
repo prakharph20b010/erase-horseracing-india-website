@@ -1,7 +1,7 @@
 ﻿"use client"
 
 import { useEffect, useRef, useState } from "react"
-import type { KeyboardEventHandler, MouseEventHandler } from "react"
+import type { KeyboardEventHandler, MouseEventHandler, ElementType } from "react"
 import { updateContent, type ContentPath } from "@/lib/editable"
 import { useEditMode } from "@/components/editable/use-edit-mode"
 
@@ -11,7 +11,7 @@ type EditableTextProps = {
   file: string
   path: ContentPath
   value: string
-  as?: keyof JSX.IntrinsicElements
+  as?: ElementType
   className?: string
   multiline?: boolean
 }

@@ -105,7 +105,7 @@ export function DataAndMapSection({
                         className="group-hover:opacity-100"
                       />
                     </g>
-                  )}
+                  )
                 })}
               </svg>
 

@@ -79,7 +79,7 @@ export default function ReportSuccessPage() {
                         className="text-sm text-muted-foreground leading-relaxed"
                       />
                     </div>
-                  )}
+                  )
                 })}
               </div>
             </div>

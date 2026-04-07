@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react"
 import type { Horse, BlogPost, Racetrack } from "@/lib/types"
 import Link from "next/link"
-import InteractiveIndiaMap from "@/components/interactive-india-map"
+import dynamic from "next/dynamic"
+const InteractiveIndiaMap = dynamic(() => import("@/components/interactive-india-map"), { ssr: false })
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { HeroSection } from "@/components/hero-section"

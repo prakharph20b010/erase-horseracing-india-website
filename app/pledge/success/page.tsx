@@ -79,7 +79,7 @@ export default function PledgeSuccessPage() {
                         className="text-sm text-muted-foreground leading-relaxed"
                       />
                     </div>
-                  )}
+                  )
                 })}
               </div>
             </div>
