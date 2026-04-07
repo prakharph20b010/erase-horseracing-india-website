@@ -6,7 +6,11 @@
     "state": "Karnataka",
     "latitude": 13.0827,
     "longitude": 77.6151,
-    "total_deaths": 24
+    "description": null,
+    "total_deaths": 24,
+    "status": "active",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
   },
   {
     "id": "2",
@@ -15,6 +19,10 @@
     "state": "Delhi",
     "latitude": 28.5244,
     "longitude": 77.0855,
-    "total_deaths": 18
+    "description": null,
+    "total_deaths": 18,
+    "status": "active",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
   }
 ]

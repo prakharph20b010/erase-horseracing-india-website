@@ -1,0 +1,9 @@
+{
+  "hero": {
+    "title": "News & Updates",
+    "subtitle": "Investigations, reports, and updates on horse racing in India."
+  },
+  "empty": {
+    "message": "No articles available."
+  }
+}

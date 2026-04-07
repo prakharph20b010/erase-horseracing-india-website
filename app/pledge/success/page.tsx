@@ -1,12 +1,14 @@
-import { Navigation } from "@/components/navigation"
+﻿import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Check, Share2, Mail } from "lucide-react"
+import content from "@/data/pages/pledge-success.json"
+import { EditableText } from "@/components/editable/editable-text"
 
 export const metadata = {
-  title: "Thank You - Erase Horseracing India",
-  description: "Thank you for signing the pledge to end horse racing in India.",
+  title: content.metadata.title,
+  description: content.metadata.description,
 }
 
 export default function PledgeSuccessPage() {
@@ -24,47 +26,82 @@ export default function PledgeSuccessPage() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground">Thank You for Your Pledge!</h1>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                You've joined thousands of compassionate people standing up for horses. Together, we will end this
-                cruelty.
-              </p>
+              <EditableText
+                file="data/pages/pledge-success.json"
+                path={["hero", "title"]}
+                value={content.hero.title}
+                as="h1"
+                className="font-serif text-4xl md:text-5xl font-bold text-foreground"
+              />
+              <EditableText
+                file="data/pages/pledge-success.json"
+                path={["hero", "subtitle"]}
+                value={content.hero.subtitle}
+                as="p"
+                multiline
+                className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+              />
             </div>
 
             <div className="pt-8 space-y-6">
-              <h2 className="font-serif text-2xl font-bold text-foreground">What's Next?</h2>
+              <EditableText
+                file="data/pages/pledge-success.json"
+                path={["next", "title"]}
+                value={content.next.title}
+                as="h2"
+                className="font-serif text-2xl font-bold text-foreground"
+              />
 
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="p-6 bg-muted/30 rounded-lg text-left space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Share2 className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="font-semibold">Spread the Word</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Share this campaign with friends and family. The more people who pledge, the stronger our movement
-                    becomes.
-                  </p>
-                </div>
+                {content.next.cards.map((card, idx) => {
+                  const Icon = idx === 0 ? Share2 : Mail
+                  const iconBg = idx === 0 ? "bg-primary/10" : "bg-secondary/10"
+                  const iconColor = idx === 0 ? "text-primary" : "text-secondary"
 
-                <div className="p-6 bg-muted/30 rounded-lg text-left space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-secondary" />
-                  </div>
-                  <h3 className="font-semibold">Stay Updated</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    We'll send you updates on our progress, upcoming actions, and ways you can help create change.
-                  </p>
-                </div>
+                  return (
+                    <div key={idx} className="p-6 bg-muted/30 rounded-lg text-left space-y-3">
+                      <div className={`w-10 h-10 rounded-lg ${iconBg} flex items-center justify-center`}>
+                        <Icon className={`h-5 w-5 ${iconColor}`} />
+                      </div>
+                      <EditableText
+                        file="data/pages/pledge-success.json"
+                        path={["next", "cards", idx, "title"]}
+                        value={card.title}
+                        as="h3"
+                        className="font-semibold"
+                      />
+                      <EditableText
+                        file="data/pages/pledge-success.json"
+                        path={["next", "cards", idx, "text"]}
+                        value={card.text}
+                        as="p"
+                        multiline
+                        className="text-sm text-muted-foreground leading-relaxed"
+                      />
+                    </div>
+                  )}
+                })}
               </div>
             </div>
 
             <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg">
-                <Link href="/memorials">View Horse Memorials</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/report">Report an Incident</Link>
-              </Button>
+              {content.buttons.map((button, idx) => (
+                <Button
+                  key={button.href}
+                  asChild
+                  size="lg"
+                  variant={button.variant === "outline" ? "outline" : "default"}
+                >
+                  <Link href={button.href}>
+                    <EditableText
+                      file="data/pages/pledge-success.json"
+                      path={["buttons", idx, "label"]}
+                      value={button.label}
+                      as="span"
+                    />
+                  </Link>
+                </Button>
+              ))}
             </div>
           </div>
         </div>

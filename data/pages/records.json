@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "title": "Killings & Records - Erase Horseracing India",
+    "description": "Documentation of horse deaths and injuries in racing across India."
+  },
+  "hero": {
+    "title": "Killings & Records",
+    "subtitle": "A record of documented deaths and injuries in Indian horse racing"
+  },
+  "stats": [
+    {
+      "title": "Documented Deaths",
+      "value": "1000+",
+      "description": "Confirmed racehorse deaths across major tracks in India over the last decade",
+      "tone": "destructive"
+    },
+    {
+      "title": "Estimated Deaths",
+      "value": "10,000+",
+      "description": "Actual deaths, including unreported incidents and those at secondary facilities",
+      "tone": "accent"
+    }
+  ],
+  "reality": {
+    "title": "The Reality",
+    "paragraphs": [
+      "Official death records in Indian racing are severely underreported. Incidents that occur in training, at secondary facilities, or that are not immediately fatal are often not included in official statistics.",
+      "Additionally, many horses are quietly euthanized after injuries sustained on the track, with these deaths not recorded in any public database.",
+      "The true number of horses suffering and dying in racing is likely many times higher than official records suggest."
+    ]
+  },
+  "tracks": {
+    "title": "Major Racetracks & Their Record",
+    "items": [
+      { "name": "Bangalore Turf Club", "deaths": 350, "notes": "Highest death rate in India" },
+      { "name": "Mumbai Racecourse", "deaths": 280, "notes": "One of the oldest and most active tracks" },
+      { "name": "Delhi Racecourse", "deaths": 210, "notes": "Capital's racing center" },
+      { "name": "Hyderabad Racecourse", "deaths": 180, "notes": "Growing racing center" }
+    ]
+  }
+}

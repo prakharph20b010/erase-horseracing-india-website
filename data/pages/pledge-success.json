@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Thank You - Erase Horseracing India",
+    "description": "Thank you for signing the pledge to end horse racing in India."
+  },
+  "hero": {
+    "title": "Thank You for Your Pledge!",
+    "subtitle": "You've joined thousands of compassionate people standing up for horses. Together, we will end this cruelty."
+  },
+  "next": {
+    "title": "What's Next?",
+    "cards": [
+      {
+        "title": "Spread the Word",
+        "text": "Share this campaign with friends and family. The more people who pledge, the stronger our movement becomes."
+      },
+      {
+        "title": "Stay Updated",
+        "text": "We'll send you updates on our progress, upcoming actions, and ways you can help create change."
+      }
+    ]
+  },
+  "buttons": [
+    { "label": "View Horse Memorials", "href": "/memorials", "variant": "default" },
+    { "label": "Report an Incident", "href": "/report", "variant": "outline" }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "title": "Contact - Erase Horseracing India",
+    "description": "Get in touch with Erase Horseracing India. Send us a message or reach out directly."
+  },
+  "hero": {
+    "title": "Contact Us",
+    "subtitle": "Have a message or question? Reach out to us below."
+  },
+  "info": [
+    {
+      "label": "Email",
+      "value": "contact@erasehorseracing.org"
+    },
+    {
+      "label": "Phone",
+      "value": "+91 (XXX) XXX-XXXX"
+    },
+    {
+      "label": "Location",
+      "value": "India"
+    }
+  ],
+  "form": {
+    "title": "Send us a Message",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "button": "Send Message"
+  }
+}

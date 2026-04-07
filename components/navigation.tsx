@@ -1,8 +1,12 @@
-"use client"
+﻿"use client"
 
 import Link from "next/link"
 import { Menu, X, Twitter, Linkedin, Instagram } from "lucide-react"
 import { useState } from "react"
+import shared from "@/data/pages/shared.json"
+import { EditableText } from "@/components/editable/editable-text"
+import { EditableLink } from "@/components/editable/editable-link"
+import { EditModeToggle } from "@/components/editable/edit-mode-toggle"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,10 +16,11 @@ export function Navigation() {
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   ]
-const basePath =
-  process.env.NODE_ENV === "production"
-    ? "/erase-horseracing-india-website"
-    : ""
+  const basePath =
+    process.env.NODE_ENV === "production"
+      ? "/erase-horseracing-india-website"
+      : ""
+
   return (
     <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-6">
@@ -24,40 +29,45 @@ const basePath =
             href="/"
             className="flex items-center gap-3 font-serif text-lg font-bold hover:opacity-80 transition-opacity"
           >
-            
             <img
               src={`${basePath}/logo.png`}
               alt="Erase Horseracing logo"
               className="h-10 w-auto"
             />
-            
-            
-            <span className="hidden sm:inline">Erase Horseracing</span>
+
+            <EditableText
+              file="data/pages/shared.json"
+              path={["navigation", "brand"]}
+              value={shared.navigation.brand}
+              as="span"
+              className="hidden sm:inline"
+            />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
-              About
-            </Link>
-            <Link href="/what-is-horseracing" className="text-sm font-medium hover:text-primary transition-colors">
-              What Is Horseracing?
-            </Link>
-            <Link href="/killing-map" className="text-sm font-medium hover:text-primary transition-colors">
-              Killing Map
-            </Link>
-            <Link href="/take-action" className="text-sm font-medium hover:text-primary transition-colors">
-              Take Action
-            </Link>
-            <Link href="/updates" className="text-sm font-medium hover:text-primary transition-colors">
-              Updates
-            </Link>
-            <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
-              Contact
-            </Link>
+            {shared.navigation.links.map((link, idx) => (
+              <EditableLink
+                key={link.href}
+                file="data/pages/shared.json"
+                textPath={["navigation", "links", idx, "label"]}
+                hrefPath={["navigation", "links", idx, "href"]}
+                text={link.label}
+                href={link.href}
+                className="text-sm font-medium hover:text-primary transition-colors"
+              />
+            ))}
+
+            <EditableLink
+              file="data/pages/shared.json"
+              textPath={["navigation", "cta", "label"]}
+              hrefPath={["navigation", "cta", "href"]}
+              text={shared.navigation.cta.label}
+              href={shared.navigation.cta.href}
+              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+            />
+
+            <EditModeToggle />
 
             {/* Desktop Social Icons */}
             <div className="flex items-center gap-3 ml-4 pl-4 border-l">
@@ -85,55 +95,21 @@ const basePath =
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden border-t py-4 space-y-4">
-            <Link
-              href="/"
-              className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/what-is-horseracing"
-              className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              What Is Horseracing?
-            </Link>
-            <Link
-              href="/killing-map"
-              className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Killing Map
-            </Link>
-            <Link
-              href="/take-action"
-              className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Take Action
-            </Link>
-            <Link
-              href="/updates"
-              className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Updates
-            </Link>
-            <Link
-              href="/contact"
-              className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </Link>
+            {shared.navigation.links.map((link, idx) => (
+              <EditableLink
+                key={link.href}
+                file="data/pages/shared.json"
+                textPath={["navigation", "links", idx, "label"]}
+                hrefPath={["navigation", "links", idx, "href"]}
+                text={link.label}
+                href={link.href}
+                className="block py-2 text-sm font-medium hover:text-primary transition-colors"
+              />
+            ))}
+
+            <div className="pt-2">
+              <EditModeToggle />
+            </div>
 
             {/* Mobile Social Icons */}
             <div className="flex items-center gap-3 pt-4 border-t">

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "title": "Take Action - Erase Horseracing India",
+    "description": "Join the movement. Sign the pledge or volunteer with us to end horse racing in India."
+  },
+  "hero": {
+    "title": "Take Action",
+    "subtitle": "Your voice matters. Choose how you want to support the movement to end horse racing in India."
+  },
+  "pledge": {
+    "title": "Take the Pledge",
+    "intro": [
+      "I pledge to stand against the exploitation of horses in racing. I recognize that horse racing is built on the suffering of animals who cannot consent to participate.",
+      "I commit to:"
+    ],
+    "commitments": [
+      "Never attend or financially support horse racing events",
+      "Advocate for policy changes to ban racing in my community",
+      "Raise awareness about the realities of horse racing",
+      "Support organizations working to end racing and protect horses"
+    ],
+    "closing": "Every horse deserves freedom, not a racetrack. By taking this pledge, I join thousands of others demanding change for horses across India.",
+    "form": {
+      "title": "Sign the Pledge",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "agree": "I solemnly pledge to boycott horseracing and support efforts to end this industry in India"
+      },
+      "button": "Sign the Pledge"
+    }
+  },
+  "volunteer": {
+    "title": "Volunteer With Us",
+    "subtitle": "Help us plan the next steps in this movement. We need skilled, passionate people to research, advocate, document, and build a future without horse racing. Share your talents and availability below.",
+    "form": {
+      "title": "Volunteer Form",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "city": "City",
+        "skills": "Skills / How can you help?",
+        "skills_placeholder": "Tell us about your skills and how you'd like to contribute...",
+        "availability": "Availability"
+      },
+      "availability_options": [
+        "Weekdays",
+        "Weekends",
+        "Flexible",
+        "Few hours per week",
+        "Full-time"
+      ],
+      "button": "Submit Volunteer Application"
+    }
+  }
+}

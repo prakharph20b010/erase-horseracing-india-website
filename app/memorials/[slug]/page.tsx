@@ -1,4 +1,4 @@
-// app/memorials/[slug]/page.tsx
+﻿// app/memorials/[slug]/page.tsx
 import fs from "fs"
 import path from "path"
 import { notFound } from "next/navigation"
@@ -8,8 +8,11 @@ import { Footer } from "@/components/footer"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
+import content from "@/data/pages/memorial-article.json"
+import { EditableText } from "@/components/editable/editable-text"
+import { EditableImage } from "@/components/editable/editable-image"
 
-/** Local data type — mirrors lib/types.Horse */
+/** Local data type â€” mirrors lib/types.Horse */
 type Memorial = {
   id: string
   name: string
@@ -48,14 +51,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = mems.find((m) => m.slug === params.slug)
   if (!item) return { title: "Memorial not found" }
   return {
-    title: `${item.name} — Memorial`,
+    title: `${item.name} â€” Memorial`,
     description: item.story?.slice(0, 160) ?? `${item.name} memorial`,
   }
 }
 
 export default function MemorialPage({ params }: Props) {
   const mems = readLocalMemorials()
-  const memorial = mems.find((m) => m.slug === params.slug)
+  const memorialIndex = mems.findIndex((m) => m.slug === params.slug)
+  const memorial = memorialIndex >= 0 ? mems[memorialIndex] : null
   if (!memorial) notFound()
 
   return (
@@ -64,38 +68,93 @@ export default function MemorialPage({ params }: Props) {
       <main>
         <div className="container mx-auto px-6 pt-6">
           <Button asChild variant="ghost" size="sm">
-            <Link href="/memorials">
+            <Link href={content.back.href}>
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Memorials
+              <EditableText
+                file="data/pages/memorial-article.json"
+                path={["back", "label"]}
+                value={content.back.label}
+                as="span"
+              />
             </Link>
           </Button>
         </div>
 
         <article className="py-12 md:py-16 px-6">
           <div className="container mx-auto max-w-3xl">
-            <h1 className="font-serif text-4xl font-bold mb-4">{memorial.name}</h1>
+            <EditableText
+              file="data/memorials.json"
+              path={[memorialIndex, "name"]}
+              value={memorial.name}
+              as="h1"
+              className="font-serif text-4xl font-bold mb-4"
+            />
 
             <p className="text-sm text-muted-foreground mb-6">
-              Born: {memorial.date_of_birth ?? "—"} • Died: {memorial.date_of_death ?? "—"}
+              <EditableText
+                file="data/pages/memorial-article.json"
+                path={["labels", "born"]}
+                value={content.labels.born}
+                as="span"
+              />: {" "}
+              <EditableText
+                file="data/memorials.json"
+                path={[memorialIndex, "date_of_birth"]}
+                value={memorial.date_of_birth ?? "â€”"}
+                as="span"
+              /> â€¢ {" "}
+              <EditableText
+                file="data/pages/memorial-article.json"
+                path={["labels", "died"]}
+                value={content.labels.died}
+                as="span"
+              />: {" "}
+              <EditableText
+                file="data/memorials.json"
+                path={[memorialIndex, "date_of_death"]}
+                value={memorial.date_of_death ?? "â€”"}
+                as="span"
+              />
             </p>
 
-            {memorial.image_url && (
-              <div className="aspect-video w-full overflow-hidden rounded-lg mb-8">
-                <img
-                  src={memorial.image_url.replace(/^\/+/, "")}
-                  alt={memorial.name}
-                  className="w-full h-full object-cover"
-                />
-
-              </div>
-            )}
-
-            <div className="prose max-w-none whitespace-pre-line mb-6">
-              {memorial.story}
+            <div className="aspect-video w-full overflow-hidden rounded-lg mb-8 bg-muted flex items-center justify-center">
+              <EditableImage
+                file="data/memorials.json"
+                path={[memorialIndex, "image_url"]}
+                src={memorial.image_url?.replace(/^\/+/, "") || ""}
+                alt={memorial.name}
+                uploadDir="pages/memorials/detail"
+                uploadName={memorial.slug || memorial.name}
+                placeholderText="No image available"
+                className="w-full h-full object-cover"
+              />
             </div>
 
+            <EditableText
+              file="data/memorials.json"
+              path={[memorialIndex, "story"]}
+              value={memorial.story ?? ""}
+              as="div"
+              multiline
+              className="prose max-w-none whitespace-pre-line mb-6"
+            />
+
             <div className="text-sm text-muted-foreground">
-              <p><span className="font-semibold">Cause of death:</span> {memorial.cause_of_death ?? "Unknown"}</p>
+              <p><span className="font-semibold">
+                <EditableText
+                  file="data/pages/memorial-article.json"
+                  path={["labels", "cause"]}
+                  value={content.labels.cause}
+                  as="span"
+                />:
+              </span> {" "}
+                <EditableText
+                  file="data/memorials.json"
+                  path={[memorialIndex, "cause_of_death"]}
+                  value={memorial.cause_of_death ?? content.labels.unknown}
+                  as="span"
+                />
+              </p>
             </div>
           </div>
         </article>
@@ -104,4 +163,3 @@ export default function MemorialPage({ params }: Props) {
     </div>
   )
 }
-

@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "title": "Report an Incident - Erase Horseracing India",
+    "description": "Report racing injuries, deaths, or abuse. Your report helps document the reality of horse racing."
+  },
+  "hero": {
+    "title": "Report an Incident",
+    "subtitle": "If you've witnessed a horse injury, death, or abuse at a racetrack, your report is crucial. Every documented incident helps build the case for ending horse racing."
+  },
+  "why": {
+    "title": "Why Your Report Matters",
+    "cards": [
+      {
+        "title": "Document the Truth",
+        "text": "The racing industry often conceals injuries and deaths. Your eyewitness account creates an independent record of what really happens on the track."
+      },
+      {
+        "title": "Hold Industry Accountable",
+        "text": "Your reports help us track patterns, identify problem tracks, and demonstrate the systemic nature of racing cruelty."
+      },
+      {
+        "title": "Support Legal Action",
+        "text": "Documented incidents strengthen legal challenges to racing and support investigations by animal welfare authorities."
+      },
+      {
+        "title": "Your Privacy Protected",
+        "text": "You can report anonymously if you prefer. We'll handle all reports with confidentiality and use them only for advocacy purposes."
+      }
+    ]
+  },
+  "form": {
+    "title": "Submit Your Report",
+    "subtitle": "Provide as much detail as possible"
+  },
+  "process": {
+    "title": "What Happens to Your Report?",
+    "steps": [
+      {
+        "title": "Review and verification",
+        "text": "Our team reviews each report to verify details and assess the incident's severity."
+      },
+      {
+        "title": "Database documentation",
+        "text": "Verified incidents are added to our database to track patterns and identify problem venues."
+      },
+      {
+        "title": "Advocacy and legal use",
+        "text": "Reports support our legal challenges, media campaigns, and advocacy efforts to end horse racing."
+      }
+    ]
+  }
+}

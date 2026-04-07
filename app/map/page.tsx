@@ -1,10 +1,11 @@
-// app/map/page.tsx
+﻿// app/map/page.tsx
 import fs from "fs"
 import path from "path"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { DataAndMapSection } from "@/components/data-and-map-section"
 import type { Racetrack } from "@/lib/types"
+import mapContent from "@/data/pages/map.json"
 
 function readLocalRacetracks(): Racetrack[] {
   try {
@@ -30,6 +31,13 @@ export default function MapPage() {
         <DataAndMapSection
           totalDeaths={totalDeaths}
           racetracks={racetracks}
+          headingLabel={mapContent.stats.label}
+          noteTitle={mapContent.note.title}
+          noteText={mapContent.note.text}
+          contentFile="data/pages/map.json"
+          headingPath={["stats", "label"]}
+          noteTitlePath={["note", "title"]}
+          noteTextPath={["note", "text"]}
         />
       </main>
 
@@ -37,4 +45,3 @@ export default function MapPage() {
     </div>
   )
 }
-

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "title": "Sign the Pledge - Erase Horseracing India",
+    "description": "Join thousands in pledging to never attend or support horse racing. Stand with us for change."
+  },
+  "hero": {
+    "title": "Take the Pledge",
+    "subtitle": "Join thousands of compassionate people across India who refuse to support an industry built on animal suffering. Your voice matters."
+  },
+  "why": {
+    "title": "Why Your Pledge Matters",
+    "cards": [
+      {
+        "title": "Build a Movement",
+        "text": "Every signature strengthens our collective voice. When thousands pledge, lawmakers and industry leaders must listen."
+      },
+      {
+        "title": "Create Economic Pressure",
+        "text": "By refusing to attend races, we demonstrate that there's no social license for this exploitation. The industry cannot survive without public support."
+      },
+      {
+        "title": "Support Legal Action",
+        "text": "Your pledge demonstrates public opposition to racing, strengthening legal challenges and policy advocacy efforts."
+      },
+      {
+        "title": "Honor the Horses",
+        "text": "Each pledge is a promise to the horses who have suffered: their deaths will not be in vain, and we will fight for change."
+      }
+    ]
+  },
+  "pledge": {
+    "title": "The Pledge",
+    "text": "I pledge to never attend, support, or bet on horse racing. I recognize that horse racing causes preventable suffering and death. I commit to speaking out against this exploitation and supporting efforts to end horse racing in India."
+  },
+  "form": {
+    "title": "Add Your Name",
+    "subtitle": "Join the movement for horses"
+  },
+  "next": {
+    "title": "What Happens Next?",
+    "steps": [
+      {
+        "title": "Your pledge is recorded",
+        "text": "We'll add your name to our growing list of supporters fighting to end horse racing."
+      },
+      {
+        "title": "Stay informed",
+        "text": "You'll receive updates on our campaigns, legal victories, and opportunities to take further action."
+      },
+      {
+        "title": "Amplify your impact",
+        "text": "Share your pledge on social media and encourage others to join. Change happens when we speak up together."
+      }
+    ]
+  }
+}

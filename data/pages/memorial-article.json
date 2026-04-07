@@ -1,0 +1,12 @@
+{
+  "back": {
+    "label": "Back to Memorials",
+    "href": "/memorials"
+  },
+  "labels": {
+    "born": "Born",
+    "died": "Died",
+    "cause": "Cause of death",
+    "unknown": "Unknown"
+  }
+}

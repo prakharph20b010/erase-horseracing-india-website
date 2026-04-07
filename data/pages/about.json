@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "title": "About Us - Erase Horseracing India",
+    "description": "Learn about our mission to end horse racing in India and create a future where horses are respected."
+  },
+  "hero": {
+    "title": "About",
+    "subtitle": "We are a grassroots movement dedicated to ending the exploitation of horses in India's racing industry."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "text": "To end horse racing in India through advocacy, education, legal action, and public awareness ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â creating a future where horses are respected as sentient beings with the right to live free from exploitation.",
+    "what_we_do": {
+      "title": "What We Do",
+      "items": [
+        "Document racing deaths and injuries across India",
+        "Support legal challenges to racing under animal welfare laws",
+        "Conduct investigative research on industry practices",
+        "Build public opposition through education and advocacy",
+        "Honor horses who have died with memorial pages"
+      ]
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "A future where horse racing no longer exists in India. Where every horse lives free from the physical and psychological trauma of racing. Where their inherent value is recognized, and their right to freedom is protected by law and embraced by society."
+    }
+  },
+  "why": {
+    "title": "Why This Matters",
+    "paragraphs": [
+      "Horse racing is not a sport ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â it's systematic exploitation. Horses don't choose to race. They're bred into captivity, trained through force and fear, and pushed beyond their natural limits for human profit and entertainment.",
+      "The industry calls deaths \"accidents\" and injuries \"part of the sport.\" But when horses die at a rate of hundreds every year across Indian tracks, when catastrophic injuries are routine, when horses race while injured or medicated ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â this isn't sport. It's abuse, dressed up in tradition and spectacle.",
+      "We exist because horses cannot speak for themselves. Because the industry won't stop on its own. Because every horse who dies on a racetrack dies for nothing but human greed and entertainment."
+    ]
+  },
+  "approach": {
+    "title": "Our Approach",
+    "items": [
+      {
+        "title": "Legal Action",
+        "text": "Supporting challenges to racing under the Prevention of Cruelty to Animals Act and building legal precedent for animal rights."
+      },
+      {
+        "title": "Investigation",
+        "text": "Documenting deaths, exposing conditions, and conducting research that reveals the truth behind racing industry PR."
+      },
+      {
+        "title": "Advocacy",
+        "text": "Building a mass movement through education, memorials, and public campaigns that shift social attitudes toward racing."
+      }
+    ]
+  },
+  "team": {
+    "title": "Meet Our Team",
+    "members": [
+      { "name": "Nitharshni", "role": "Founder & President", "bio": "" },
+      { "name": "Sri Vinaya", "role": "VP, Legal", "bio": "" },
+      { "name": "Lalitha", "role": "VP, Policy", "bio": "" },
+      { "name": "Mahesh", "role": "VP, Strategy", "bio": "" },
+      { "name": "Harini", "role": "VP, Finance", "bio": "" },
+      { "name": "Soumya", "role": "VP, Communications", "bio": "" },
+      { "name": "Nicole Arciello", "role": "Advisor", "bio": "Executive Director of Horseracing Wrongs" },
+      { "name": "Sandy Jey", "role": "Advisor", "bio": "President of Evansville Animal Advocacy" }
+    ]
+  },
+  "cta": {
+    "title": "Join the Movement",
+    "text": "Change happens when ordinary people refuse to accept cruelty as entertainment. Add your voice to thousands demanding an end to horse racing.",
+    "button": {
+      "label": "Sign the Pledge",
+      "href": "/pledge"
+    }
+  }
+}

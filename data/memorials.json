@@ -64,7 +64,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "cold-pursuit",
     "name": "COLD PURSUIT",
@@ -78,7 +77,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "tenali",
     "name": "TENALI",
@@ -92,7 +90,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "deo-volente",
     "name": "DEO VOLENTE",
@@ -106,7 +103,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "golden-neil",
     "name": "GOLDEN NEIL",
@@ -120,7 +116,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "ultimate-striker",
     "name": "ULTIMATE STRIKER",
@@ -134,7 +129,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "fleetwood",
     "name": "FLEETWOOD",
@@ -148,7 +142,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "sweet-legacy",
     "name": "SWEET LEGACY",
@@ -162,7 +155,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "smash-shot",
     "name": "SMASH SHOT",
@@ -176,7 +168,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "zacapa",
     "name": "ZACAPA",
@@ -190,7 +181,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "vijaya-falcon",
     "name": "VIJAYA FALCON",
@@ -204,7 +194,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "mystical-forest",
     "name": "MYSTICAL FOREST",
@@ -218,7 +207,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "deus-ex-machina",
     "name": "DEUS EX MACHINA",
@@ -232,7 +220,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "knotty-patton",
     "name": "KNOTTY PATTON",
@@ -246,7 +233,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "domina",
     "name": "DOMINA",
@@ -260,7 +246,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "role-model",
     "name": "ROLE MODEL",
@@ -274,7 +259,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "dazzling-princess",
     "name": "DAZZLING PRINCESS",
@@ -288,7 +272,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "divine-intuition",
     "name": "DIVINE INTUITION",
@@ -302,7 +285,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "superluminal",
     "name": "SUPERLUMINAL",
@@ -316,7 +298,6 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-
   {
     "id": "black-magician",
     "name": "BLACK MAGICIAN",
@@ -330,47 +311,43 @@
     "created_at": "2026-01-18",
     "updated_at": "2026-01-18"
   },
-  
   {
-  "id": "zephyr",
-  "name": "ZEPHYR",
-  "slug": "zephyr",
-  "image_url": "/horses/zephyr.png",
-  "date_of_birth": null,
-  "date_of_death": "2026-01-04",
-  "cause_of_death": "Gum injury and fractured jaw",
-  "story": "Age: 4Y | Color/Sex: b f | Outcome: -",
-  "racetrack_id": "Mumbai",
-  "created_at": "2026-01-18",
-  "updated_at": "2026-01-18"
-},
-  
-{
-  "id": "hilma-klint",
-  "name": "HILMA KLINT",
-  "slug": "hilma-klint",
-  "image_url": "/horses/hilma-klint.png",
-  "date_of_birth": null,
-  "date_of_death": "2026-02-26",
-  "cause_of_death": "Fractured both her fore fetlock joints",
-  "story": "Age: 8Y | Color/Sex: b m | Outcome: Euthanised",
-  "racetrack_id": "Mumbai",
-  "created_at": "2026-01-18",
-  "updated_at": "2026-01-18"
-},
-  
-{
-  "id": "medusa",
-  "name": "MEDUSA",
-  "slug": "medusa",
-  "image_url": "/horses/medusa.png",
-  "date_of_birth": null,
-  "date_of_death": "2026-03-22",
-  "cause_of_death": "Collapsed due to cardiac arrest",
-  "story": "Age: 5Y | Color/Sex: gr m | Outcome: -",
-  "racetrack_id": "Mumbai",
-  "created_at": "2026-01-18",
-  "updated_at": "2026-01-18"
-}
+    "id": "zephyr",
+    "name": "ZEPHYR",
+    "slug": "zephyr",
+    "image_url": "/horses/zephyr.png",
+    "date_of_birth": null,
+    "date_of_death": "2026-01-04",
+    "cause_of_death": "Gum injury and fractured jaw",
+    "story": "Age: 4Y | Color/Sex: b f | Outcome: -",
+    "racetrack_id": "Mumbai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+  {
+    "id": "hilma-klint",
+    "name": "HILMA KLINT",
+    "slug": "hilma-klint",
+    "image_url": "/horses/hilma-klint.png",
+    "date_of_birth": null,
+    "date_of_death": "2026-02-26",
+    "cause_of_death": "Fractured both her fore fetlock joints",
+    "story": "Age: 8Y | Color/Sex: b m | Outcome: Euthanised",
+    "racetrack_id": "Mumbai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  },
+  {
+    "id": "medusa",
+    "name": "MEDUSA",
+    "slug": "medusa",
+    "image_url": "/horses/medusa.png",
+    "date_of_birth": null,
+    "date_of_death": "2026-03-22",
+    "cause_of_death": "Collapsed due to cardiac arrest",
+    "story": "Age: 5Y | Color/Sex: gr m | Outcome: -",
+    "racetrack_id": "Mumbai",
+    "created_at": "2026-01-18",
+    "updated_at": "2026-01-18"
+  }
 ]
-

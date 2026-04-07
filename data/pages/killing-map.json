@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "title": "Killing Map - Erase Horseracing India",
+    "description": "Interactive map of documented deaths and injuries across Indian racing tracks."
+  },
+  "hero": {
+    "title": "Killing Map",
+    "subtitle": "Interactive map of documented deaths across Indian racing tracks"
+  },
+  "stats": [
+    {
+      "title": "Documented Deaths",
+      "value": "{totalDeaths}+",
+      "subtitle": "Across tracked facilities",
+      "tone": "destructive"
+    },
+    {
+      "title": "Estimated Total",
+      "value": "10,000+",
+      "subtitle": "Including unreported incidents",
+      "tone": "accent"
+    },
+    {
+      "title": "Major Tracks",
+      "value": "{trackCount}",
+      "subtitle": "Locations documented",
+      "tone": "primary"
+    }
+  ],
+  "map": {
+    "title": "Deaths by Track"
+  },
+  "context": {
+    "title": "Understanding the Data",
+    "text": "Official death records in Indian racing are severely underreported. Many incidents occur in training or secondary facilities and never enter public statistics. The true toll is likely far higher."
+  },
+  "racetracks": [
+    {
+      "id": "1",
+      "name": "Bangalore Turf Club",
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "latitude": 13.1939,
+      "longitude": 77.5941,
+      "description": null,
+      "total_deaths": 350,
+      "status": "active",
+      "created_at": "2024-01-01",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "2",
+      "name": "Mumbai Racecourse",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "latitude": 19.0176,
+      "longitude": 72.8298,
+      "description": null,
+      "total_deaths": 280,
+      "status": "active",
+      "created_at": "2024-01-01",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "3",
+      "name": "Delhi Racecourse",
+      "city": "Delhi",
+      "state": "Delhi",
+      "latitude": 28.5355,
+      "longitude": 77.2707,
+      "description": null,
+      "total_deaths": 210,
+      "status": "active",
+      "created_at": "2024-01-01",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "4",
+      "name": "Hyderabad Racecourse",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "latitude": 17.385,
+      "longitude": 78.4867,
+      "description": null,
+      "total_deaths": 180,
+      "status": "active",
+      "created_at": "2024-01-01",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "5",
+      "name": "Pune Racecourse",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "latitude": 18.5204,
+      "longitude": 73.8567,
+      "description": null,
+      "total_deaths": 120,
+      "status": "active",
+      "created_at": "2024-01-01",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "6",
+      "name": "Kolkata Racecourse",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "latitude": 22.5726,
+      "longitude": 88.3639,
+      "description": null,
+      "total_deaths": 95,
+      "status": "active",
+      "created_at": "2024-01-01",
+      "updated_at": "2024-01-01"
+    }
+  ]
+}

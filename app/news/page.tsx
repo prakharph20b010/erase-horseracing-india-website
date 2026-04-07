@@ -1,4 +1,4 @@
-// app/news/page.tsx
+﻿// app/news/page.tsx
 import fs from "fs"
 import path from "path"
 import Link from "next/link"
@@ -7,6 +7,10 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Calendar } from "lucide-react"
 import type { BlogPost } from "@/lib/types"
+import content from "@/data/pages/news.json"
+import { EditableText } from "@/components/editable/editable-text"
+import postsData from "@/data/posts.json"
+import { EditableImage } from "@/components/editable/editable-image"
 
 function readLocalPosts(): BlogPost[] {
   try {
@@ -28,6 +32,10 @@ export default function NewsPage() {
         new Date(b.published_at ?? "").getTime() -
         new Date(a.published_at ?? "").getTime()
     )
+  const indexBySlug = new Map<string, number>()
+  ;(postsData as BlogPost[]).forEach((p, i) => {
+    if (p.slug) indexBySlug.set(p.slug, i)
+  })
 
   return (
     <div className="min-h-screen bg-background">
@@ -37,12 +45,20 @@ export default function NewsPage() {
         {/* Hero */}
         <section className="py-20 md:py-32 px-6 border-b">
           <div className="container mx-auto max-w-4xl text-center space-y-6">
-            <h1 className="font-serif text-5xl md:text-6xl font-bold">
-              News & Updates
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Investigations, reports, and updates on horse racing in India.
-            </p>
+            <EditableText
+              file="data/pages/news.json"
+              path={["hero", "title"]}
+              value={content.hero.title}
+              as="h1"
+              className="font-serif text-5xl md:text-6xl font-bold"
+            />
+            <EditableText
+              file="data/pages/news.json"
+              path={["hero", "subtitle"]}
+              value={content.hero.subtitle}
+              as="p"
+              className="text-xl text-muted-foreground"
+            />
           </div>
         </section>
 
@@ -51,21 +67,38 @@ export default function NewsPage() {
           <div className="container mx-auto max-w-6xl">
             {posts.length > 0 ? (
               <div className="grid md:grid-cols-3 gap-6">
-                {posts.map((post) => (
+                {posts.map((post) => {
+                  const idx = indexBySlug.get(post.slug)
+                  return (
                   <Card
                     key={post.id}
                     className="overflow-hidden hover:shadow-lg transition-shadow group"
                   >
                     <Link href={`/news/${post.slug}`}>
-                      {post.image_url && (
-                        <div className="aspect-video w-full overflow-hidden bg-muted">
+                      <div className="aspect-video w-full overflow-hidden bg-muted flex items-center justify-center">
+                        {typeof idx === "number" ? (
+                          <EditableImage
+                            file="data/posts.json"
+                            path={[idx, "image_url"]}
+                            src={post.image_url || ""}
+                            alt={post.title}
+                            uploadDir="pages/news/cards"
+                            uploadName={post.slug || post.title}
+                            placeholderText="No image available"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        ) : post.image_url ? (
                           <img
                             src={post.image_url}
                             alt={post.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
-                        </div>
-                      )}
+                        ) : (
+                          <span className="text-xs text-muted-foreground italic">
+                            No image available
+                          </span>
+                        )}
+                      </div>
                       <CardContent className="p-6 space-y-3">
                         <div className="flex items-center gap-2 text-xs text-muted-foreground">
                           <Calendar className="h-3 w-3" />
@@ -82,12 +115,17 @@ export default function NewsPage() {
                       </CardContent>
                     </Link>
                   </Card>
-                ))}
+                  )
+                })}
               </div>
             ) : (
-              <p className="text-center text-muted-foreground">
-                No articles available.
-              </p>
+              <EditableText
+                file="data/pages/news.json"
+                path={["empty", "message"]}
+                value={content.empty.message}
+                as="p"
+                className="text-center text-muted-foreground"
+              />
             )}
           </div>
         </section>
@@ -97,4 +135,3 @@ export default function NewsPage() {
     </div>
   )
 }
-

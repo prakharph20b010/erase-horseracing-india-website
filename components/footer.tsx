@@ -1,5 +1,8 @@
-import Link from "next/link"
+﻿import Link from "next/link"
 import { Heart, Twitter, Linkedin, Instagram } from "lucide-react"
+import shared from "@/data/pages/shared.json"
+import { EditableText } from "@/components/editable/editable-text"
+import { EditableLink } from "@/components/editable/editable-link"
 
 export function Footer() {
   return (
@@ -7,59 +10,56 @@ export function Footer() {
       <div className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-5 gap-8 mb-12">
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-bold">Erase Horseracing India</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              A movement to end horse racing exploitation and honor the horses who have suffered.
-            </p>
+            <EditableText
+              file="data/pages/shared.json"
+              path={["footer", "brand"]}
+              value={shared.footer.brand}
+              as="h3"
+              className="font-serif text-lg font-bold"
+            />
+            <EditableText
+              file="data/pages/shared.json"
+              path={["footer", "tagline"]}
+              value={shared.footer.tagline}
+              as="p"
+              multiline
+              className="text-sm text-muted-foreground leading-relaxed"
+            />
           </div>
 
           <div className="space-y-4">
             <h4 className="font-semibold text-sm">Pages</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/what-is-horseracing"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  What Is Horseracing?
-                </Link>
-              </li>
-              <li>
-                <Link href="/records" className="text-muted-foreground hover:text-primary transition-colors">
-                  Records
-                </Link>
-              </li>
+              {shared.navigation.links.slice(0, 4).map((link, idx) => (
+                <li key={link.href}>
+                  <EditableLink
+                    file="data/pages/shared.json"
+                    textPath={["navigation", "links", idx, "label"]}
+                    hrefPath={["navigation", "links", idx, "href"]}
+                    text={link.label}
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  />
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="space-y-4">
             <h4 className="font-semibold text-sm">Take Action</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/take-action" className="text-muted-foreground hover:text-primary transition-colors">
-                  Take Action
-                </Link>
-              </li>
-              <li>
-                <Link href="/memorials" className="text-muted-foreground hover:text-primary transition-colors">
-                  Memorials
-                </Link>
-              </li>
-              <li>
-                <Link href="/updates" className="text-muted-foreground hover:text-primary transition-colors">
-                  Updates
-                </Link>
-              </li>
+              {shared.navigation.links.slice(4, 7).map((link, idx) => (
+                <li key={link.href}>
+                  <EditableLink
+                    file="data/pages/shared.json"
+                    textPath={["navigation", "links", idx + 4, "label"]}
+                    hrefPath={["navigation", "links", idx + 4, "href"]}
+                    text={link.label}
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  />
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -67,9 +67,14 @@ export function Footer() {
             <h4 className="font-semibold text-sm">Connect</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-                  Contact
-                </Link>
+                <EditableLink
+                  file="data/pages/shared.json"
+                  textPath={["navigation", "links", 6, "label"]}
+                  hrefPath={["navigation", "links", 6, "href"]}
+                  text={shared.navigation.links[6]?.label ?? "Contact"}
+                  href={shared.navigation.links[6]?.href ?? "/contact"}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                />
               </li>
               <li>
                 <a
@@ -97,16 +102,18 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold text-sm">Legal</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
-                  Terms of Use
-                </Link>
-              </li>
+              {shared.footer.links.map((link, idx) => (
+                <li key={link.href}>
+                  <EditableLink
+                    file="data/pages/shared.json"
+                    textPath={["footer", "links", idx, "label"]}
+                    hrefPath={["footer", "links", idx, "href"]}
+                    text={link.label}
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  />
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -142,7 +149,7 @@ export function Footer() {
             Made with <Heart className="h-4 w-4 text-primary fill-primary" /> for the horses
           </p>
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Erase Horseracing India. All rights reserved.
+            Â© {new Date().getFullYear()} {shared.footer.brand}. {shared.footer.copyright}
           </p>
         </div>
       </div>

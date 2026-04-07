@@ -1,15 +1,35 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import type { Racetrack as CanonicalRacetrack } from "@/lib/types"
 import { Card } from "@/components/ui/card"
+import { EditableText } from "@/components/editable/editable-text"
+import type { ContentPath } from "@/lib/editable"
 
 type DataAndMapSectionProps = {
   totalDeaths: number
   racetracks: CanonicalRacetrack[] | null
+  headingLabel?: string
+  noteTitle?: string
+  noteText?: string
+  contentFile?: string
+  headingPath?: ContentPath
+  noteTitlePath?: ContentPath
+  noteTextPath?: ContentPath
 }
 
-export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSectionProps) {
+export function DataAndMapSection({
+  totalDeaths,
+  racetracks,
+  headingLabel = "DOCUMENTED RACEHORSE DEATHS IN INDIA",
+  noteTitle = "Note:",
+  noteText =
+    "These numbers represent only officially documented deaths. The actual count is significantly higher, as many injuries and deaths go unreported in the racing industry.",
+  contentFile,
+  headingPath,
+  noteTitlePath,
+  noteTextPath,
+}: DataAndMapSectionProps) {
   const [selectedTrack, setSelectedTrack] = useState<CanonicalRacetrack | null>(null)
 
   const tracks = racetracks ?? []
@@ -18,7 +38,17 @@ export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSection
     <section className="py-20 md:py-32 px-6 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 md:mb-24">
-          <p className="text-lg text-muted-foreground mb-4 tracking-wide">DOCUMENTED RACEHORSE DEATHS IN INDIA</p>
+          {contentFile && headingPath ? (
+            <EditableText
+              file={contentFile}
+              path={headingPath}
+              value={headingLabel}
+              as="p"
+              className="text-lg text-muted-foreground mb-4 tracking-wide"
+            />
+          ) : (
+            <p className="text-lg text-muted-foreground mb-4 tracking-wide">{headingLabel}</p>
+          )}
           <div className="font-serif text-7xl md:text-9xl font-bold text-destructive text-balance">{totalDeaths}+</div>
         </div>
 
@@ -75,7 +105,7 @@ export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSection
                         className="group-hover:opacity-100"
                       />
                     </g>
-                  )
+                  )}
                 })}
               </svg>
 
@@ -129,13 +159,31 @@ export function DataAndMapSection({ totalDeaths, racetracks }: DataAndMapSection
         {/* Context note */}
         <div className="mt-12 p-6 bg-muted/30 rounded-lg border border-border">
           <p className="text-sm text-muted-foreground leading-relaxed">
-            <span className="font-semibold text-foreground">Note:</span> These numbers represent only officially
-            documented deaths. The actual count is significantly higher, as many injuries and deaths go unreported in
-            the racing industry.
+            {contentFile && noteTitlePath ? (
+              <EditableText
+                file={contentFile}
+                path={noteTitlePath}
+                value={noteTitle}
+                as="span"
+                className="font-semibold text-foreground"
+              />
+            ) : (
+              <span className="font-semibold text-foreground">{noteTitle}</span>
+            )} {" "}
+            {contentFile && noteTextPath ? (
+              <EditableText
+                file={contentFile}
+                path={noteTextPath}
+                value={noteText}
+                as="span"
+                multiline
+              />
+            ) : (
+              noteText
+            )}
           </p>
         </div>
       </div>
     </section>
   )
 }
-

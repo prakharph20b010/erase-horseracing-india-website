@@ -1,0 +1,14 @@
+{
+  "back": {
+    "label": "Back to News",
+    "href": "/news"
+  },
+  "share": {
+    "title": "Share this article",
+    "subtitle": "Help spread awareness about this issue",
+    "button": "Share"
+  },
+  "related": {
+    "title": "Related Articles"
+  }
+}

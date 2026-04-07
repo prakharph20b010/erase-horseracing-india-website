@@ -1,10 +1,13 @@
-// app/memorials/page.tsx
+﻿// app/memorials/page.tsx
 import fs from "fs"
 import path from "path"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { MemorialGrid } from "@/components/memorial-grid"
 import type { Horse } from "@/lib/types"
+import content from "@/data/pages/memorials.json"
+import { EditableText } from "@/components/editable/editable-text"
+import { AddItemButton } from "@/components/editable/list-controls"
 
 function readLocalMemorials(): Horse[] {
   try {
@@ -20,12 +23,12 @@ export const dynamic = "error" // enforce static-only
 
 export default function MemorialsPage() {
   const memorials = readLocalMemorials()
-  .slice()
-  .sort((a, b) => {
-    const da = a.date_of_death ? new Date(a.date_of_death).getTime() : 0
-    const db = b.date_of_death ? new Date(b.date_of_death).getTime() : 0
-    return db - da // newest first
-  })
+    .slice()
+    .sort((a, b) => {
+      const da = a.date_of_death ? new Date(a.date_of_death).getTime() : 0
+      const db = b.date_of_death ? new Date(b.date_of_death).getTime() : 0
+      return db - da // newest first
+    })
 
   return (
     <div className="min-h-screen bg-background">
@@ -35,19 +38,33 @@ export default function MemorialsPage() {
         {/* Hero */}
         <section className="py-20 md:py-32 px-6 border-b">
           <div className="container mx-auto max-w-4xl text-center space-y-6">
-            <h1 className="font-serif text-5xl md:text-6xl font-bold">
-              Memorials
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Each horse had a name, a story, and a life worth remembering.
-            </p>
-            
+            <EditableText
+              file="data/pages/memorials.json"
+              path={["hero", "title"]}
+              value={content.hero.title}
+              as="h1"
+              className="font-serif text-5xl md:text-6xl font-bold"
+            />
+            <EditableText
+              file="data/pages/memorials.json"
+              path={["hero", "subtitle"]}
+              value={content.hero.subtitle}
+              as="p"
+              className="text-xl text-muted-foreground"
+            />
+
             <p className="text-base text-muted-foreground">
-      Total memorials recorded:{" "}
-      <span className="font-semibold text-foreground">
-        {memorials.length}
-      </span>
-    </p>
+              <EditableText
+                file="data/pages/memorials.json"
+                path={["hero", "count_label"]}
+                value={content.hero.count_label}
+                as="span"
+              />
+              : {" "}
+              <span className="font-semibold text-foreground">
+                {memorials.length}
+              </span>
+            </p>
           </div>
         </section>
 
@@ -57,10 +74,33 @@ export default function MemorialsPage() {
             {memorials.length > 0 ? (
               <MemorialGrid horses={memorials} />
             ) : (
-              <p className="text-center text-muted-foreground">
-                No memorials available.
-              </p>
+              <EditableText
+                file="data/pages/memorials.json"
+                path={["empty", "message"]}
+                value={content.empty.message}
+                as="p"
+                className="text-center text-muted-foreground"
+              />
             )}
+
+            <AddItemButton
+              file="data/memorials.json"
+              path={[]}
+              label="+ Add Memorial"
+              template={{
+                id: `memorial-${Date.now()}`,
+                name: "NEW HORSE",
+                slug: `new-horse-${Date.now()}`,
+                image_url: "",
+                date_of_birth: null,
+                date_of_death: "",
+                cause_of_death: "",
+                story: "",
+                racetrack_id: "",
+                created_at: new Date().toISOString().slice(0, 10),
+                updated_at: new Date().toISOString().slice(0, 10),
+              }}
+            />
           </div>
         </section>
       </main>
@@ -69,4 +109,3 @@ export default function MemorialsPage() {
     </div>
   )
 }
-

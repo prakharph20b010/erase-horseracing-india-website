@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Crimson_Text, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import "leaflet/dist/leaflet.css"
 
 const crimsonText = Crimson_Text({
   subsets: ["latin"],

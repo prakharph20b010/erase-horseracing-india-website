@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Report Submitted - Erase Horseracing India",
+    "description": "Thank you for reporting an incident. Your report helps us fight for horses."
+  },
+  "hero": {
+    "title": "Thank You for Your Report",
+    "subtitle": "Your eyewitness account is invaluable. Every documented incident strengthens our case for ending horse racing."
+  },
+  "next": {
+    "title": "What Happens Next?",
+    "cards": [
+      {
+        "title": "We Review Your Report",
+        "text": "Our team will carefully review and verify the details. If needed, we may contact you for additional information."
+      },
+      {
+        "title": "Your Report Drives Change",
+        "text": "Documented incidents support our advocacy, legal challenges, and public awareness campaigns."
+      }
+    ]
+  },
+  "buttons": [
+    { "label": "Sign the Pledge", "href": "/pledge", "variant": "default" },
+    { "label": "View Memorials", "href": "/memorials", "variant": "outline" }
+  ]
+}

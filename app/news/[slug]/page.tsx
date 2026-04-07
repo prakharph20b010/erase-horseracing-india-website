@@ -1,4 +1,4 @@
-// app/news/[slug]/page.tsx
+﻿// app/news/[slug]/page.tsx
 import fs from "fs"
 import path from "path"
 import { Navigation } from "@/components/navigation"
@@ -9,6 +9,11 @@ import { Calendar, User, ArrowLeft, Share2 } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
+import content from "@/data/pages/news-article.json"
+import { EditableText } from "@/components/editable/editable-text"
+import { EditableImage } from "@/components/editable/editable-image"
+import { RemoveItemButton } from "@/components/editable/list-controls"
+
 
 type Post = {
   id: string
@@ -60,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Article Not Found" }
   }
   return {
-    title: `${post.title} – Erase Horseracing India`,
+    title: `${post.title} â€“ Erase Horseracing India`,
     description: post.excerpt ?? post.content.slice(0, 160),
   }
 }
@@ -70,7 +75,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
    ---------------------------- */
 export default function NewsArticlePage({ params }: Props) {
   const posts = readLocalPosts()
-  const post = posts.find((p) => p.slug === params.slug && p.published)
+  const indexBySlug = new Map<string, number>()
+  posts.forEach((p, i) => {
+    if (p.slug) indexBySlug.set(p.slug, i)
+  })
+  const postIndex = posts.findIndex((p) => p.slug === params.slug && p.published)
+  const post = postIndex >= 0 ? posts[postIndex] : null
 
   if (!post) {
     notFound()
@@ -88,15 +98,21 @@ export default function NewsArticlePage({ params }: Props) {
       <main>
         <div className="container mx-auto px-6 pt-6">
           <Button asChild variant="ghost" size="sm">
-            <Link href="/news">
+            <Link href={content.back.href}>
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to News
+              <EditableText
+                file="data/pages/news-article.json"
+                path={["back", "label"]}
+                value={content.back.label}
+                as="span"
+              />
             </Link>
           </Button>
         </div>
 
         <article className="py-12 md:py-16 px-6">
-          <div className="container mx-auto max-w-4xl">
+          <div className="container mx-auto max-w-4xl relative">
+            <RemoveItemButton file="data/posts.json" path={[]} index={postIndex} />
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
@@ -104,37 +120,84 @@ export default function NewsArticlePage({ params }: Props) {
                   {post!.published_at ?? ""}
                 </time>
               </div>
-              <span>•</span>
+              <span>â€¢</span>
               <div className="flex items-center gap-2">
                 <User className="h-4 w-4" />
-                <span>{post!.author ?? "Erase Horseracing India"}</span>
+                <EditableText
+                  file="data/posts.json"
+                  path={[postIndex, "author"]}
+                  value={post!.author ?? "Erase Horseracing India"}
+                  as="span"
+                />
               </div>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {post!.title}
-            </h1>
+            <EditableText
+              file="data/posts.json"
+              path={[postIndex, "title"]}
+              value={post!.title}
+              as="h1"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            />
 
-            {post!.excerpt && <p className="text-xl text-muted-foreground mb-8">{post!.excerpt}</p>}
-
-            {post!.image_url && (
-              <div className="aspect-video w-full overflow-hidden rounded-lg bg-muted mb-12">
-                <img src={post!.image_url} alt={post!.title} className="w-full h-full object-cover" />
-              </div>
+            {post!.excerpt && (
+              <EditableText
+                file="data/posts.json"
+                path={[postIndex, "excerpt"]}
+                value={post!.excerpt}
+                as="p"
+                multiline
+                className="text-xl text-muted-foreground mb-8"
+              />
             )}
 
-            <div className="prose prose-lg max-w-none whitespace-pre-line">
-              {post!.content}
+            <div className="aspect-video w-full overflow-hidden rounded-lg bg-muted mb-12 flex items-center justify-center">
+              <EditableImage
+                file="data/posts.json"
+                path={[postIndex, "image_url"]}
+                src={post!.image_url || ""}
+                alt={post!.title}
+                uploadDir="pages/news/posts"
+                uploadName={post!.slug || post!.title}
+                placeholderText="No image available"
+                className="w-full h-full object-cover"
+              />
             </div>
+
+            <EditableText
+              file="data/posts.json"
+              path={[postIndex, "content"]}
+              value={post!.content}
+              as="div"
+              multiline
+              className="prose prose-lg max-w-none whitespace-pre-line"
+            />
 
             <div className="mt-12 pt-8 border-t flex justify-between items-center flex-wrap gap-4">
               <div>
-                <h3 className="font-semibold">Share this article</h3>
-                <p className="text-sm text-muted-foreground">Help spread awareness about this issue</p>
+                <EditableText
+                  file="data/pages/news-article.json"
+                  path={["share", "title"]}
+                  value={content.share.title}
+                  as="h3"
+                  className="font-semibold"
+                />
+                <EditableText
+                  file="data/pages/news-article.json"
+                  path={["share", "subtitle"]}
+                  value={content.share.subtitle}
+                  as="p"
+                  className="text-sm text-muted-foreground"
+                />
               </div>
               <Button variant="outline" size="sm">
                 <Share2 className="mr-2 h-4 w-4" />
-                Share
+                <EditableText
+                  file="data/pages/news-article.json"
+                  path={["share", "button"]}
+                  value={content.share.button}
+                  as="span"
+                />
               </Button>
             </div>
           </div>
@@ -143,16 +206,43 @@ export default function NewsArticlePage({ params }: Props) {
         {relatedPosts.length > 0 && (
           <section className="py-12 md:py-16 px-6 bg-muted/30">
             <div className="container mx-auto max-w-6xl">
-              <h2 className="font-serif text-3xl font-bold text-foreground mb-8">Related Articles</h2>
+              <EditableText
+                file="data/pages/news-article.json"
+                path={["related", "title"]}
+                value={content.related.title}
+                as="h2"
+                className="font-serif text-3xl font-bold text-foreground mb-8"
+              />
               <div className="grid md:grid-cols-3 gap-6">
-                {relatedPosts.map((rp) => (
+                {relatedPosts.map((rp) => {
+                  const idx = indexBySlug.get(rp.slug)
+                  return (
                   <Card key={rp.id} className="overflow-hidden hover:shadow-lg transition-shadow group">
                     <Link href={`/news/${rp.slug}`}>
-                      {rp.image_url && (
-                        <div className="aspect-video w-full overflow-hidden bg-muted">
-                          <img src={rp.image_url} alt={rp.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                        </div>
-                      )}
+                      <div className="aspect-video w-full overflow-hidden bg-muted flex items-center justify-center">
+                        {typeof idx === "number" ? (
+                          <EditableImage
+                            file="data/posts.json"
+                            path={[idx, "image_url"]}
+                            src={rp.image_url || ""}
+                            alt={rp.title}
+                            uploadDir="pages/news/posts"
+                            uploadName={rp.slug || rp.title}
+                            placeholderText="No image available"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        ) : rp.image_url ? (
+                          <img
+                            src={rp.image_url}
+                            alt={rp.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        ) : (
+                          <span className="text-xs text-muted-foreground italic">
+                            No image available
+                          </span>
+                        )}
+                      </div>
                       <CardContent className="p-6 space-y-3">
                         <div className="flex items-center gap-2 text-xs text-muted-foreground">
                           <Calendar className="h-3 w-3" />
@@ -162,7 +252,8 @@ export default function NewsArticlePage({ params }: Props) {
                       </CardContent>
                     </Link>
                   </Card>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </section>
@@ -173,4 +264,3 @@ export default function NewsArticlePage({ params }: Props) {
     </div>
   )
 }
-
