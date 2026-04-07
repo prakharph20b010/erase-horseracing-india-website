@@ -4,6 +4,7 @@ import type { MouseEvent } from "react"
 import { updateContent, type ContentPath } from "@/lib/editable"
 import { EditableText } from "@/components/editable/editable-text"
 import { useEditMode } from "@/components/editable/use-edit-mode"
+import Link from "next/link"
 
 type EditableLinkProps = {
   file: string
@@ -27,8 +28,8 @@ export function EditableLink({ file, textPath, hrefPath, text, href, className }
   }
 
   return (
-    <a href={href} className={className} onClick={handleEditHref}>
+    <Link href={href} className={className} onClick={handleEditHref}>
       <EditableText file={file} path={textPath} value={text} as="span" />
-    </a>
+    </Link>
   )
 }
