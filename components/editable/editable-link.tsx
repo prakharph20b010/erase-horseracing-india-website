@@ -19,6 +19,9 @@ export function EditableLink({ file, textPath, hrefPath, text, href, className }
   const { ready, enabled } = useEditMode()
   const editable = ready && enabled
 
+  const basePath = process.env.NODE_ENV === "production" ? "/erase-horseracing-india-website" : ""
+  const resolvedHref = href.startsWith("/") ? `${basePath}${href}` : href
+
   const handleEditHref = async (event: MouseEvent<HTMLAnchorElement>) => {
     if (!editable || !(event.altKey || event.ctrlKey)) return
     event.preventDefault()
@@ -28,7 +31,7 @@ export function EditableLink({ file, textPath, hrefPath, text, href, className }
   }
 
   return (
-    <Link href={href} className={className} onClick={handleEditHref}>
+    <Link href={resolvedHref} className={className} onClick={handleEditHref}>
       <EditableText file={file} path={textPath} value={text} as="span" />
     </Link>
   )

@@ -104,6 +104,9 @@ export function EditableImage({
     }, 0)
   }
 
+  const basePath = process.env.NODE_ENV === "production" ? "/erase-horseracing-india-website" : ""
+  const resolvedSrc = current && current.startsWith("/") ? `${basePath}${current}` : current
+
   const handleOverlayClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.preventDefault()
     event.stopPropagation()
@@ -134,7 +137,7 @@ export function EditableImage({
 
   return (
     <div
-      className={editable ? "relative" : undefined}
+      className={editable ? "relative isolate" : undefined}
       onClick={handleWrapperClick}
       onPointerDown={handleWrapperPointerDown}
     >
@@ -149,14 +152,14 @@ export function EditableImage({
         </button>
       ) : (
         <img
-          src={current}
+          src={resolvedSrc}
           alt={alt}
           className={`${className ?? ""} relative z-0`}
           onClick={handleEdit}
         />
       )}
       {editable && (
-        <div className="absolute top-2 left-2 right-2 z-50 flex items-center gap-2 justify-end">
+        <div className="absolute top-2 right-2 z-50 flex items-center gap-2">
           {uploadDir && (
             <button
               type="button"
