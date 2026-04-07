@@ -19,8 +19,8 @@ export function EditableLink({ file, textPath, hrefPath, text, href, className }
   const { ready, enabled } = useEditMode()
   const editable = ready && enabled
 
-  const basePath = process.env.NODE_ENV === "production" ? "/erase-horseracing-india-website" : ""
-  const resolvedHref = href.startsWith("/") ? `${basePath}${href}` : href
+  // Do not prefix basePath here — Next handles `basePath` from next.config.mjs.
+  const resolvedHref = href
 
   const handleEditHref = async (event: MouseEvent<HTMLAnchorElement>) => {
     if (!editable || !(event.altKey || event.ctrlKey)) return
