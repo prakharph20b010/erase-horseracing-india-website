@@ -6,13 +6,34 @@
       "href": "/report"
     },
     "links": [
-      { "label": "Home", "href": "/" },
-      { "label": "About", "href": "/about" },
-      { "label": "What Is Horseracing", "href": "/what-is-horseracing" },
-      { "label": "Memorials", "href": "/memorials" },
-      { "label": "Updates", "href": "/updates" },
-      { "label": "Take Action", "href": "/take-action" },
-      { "label": "Contact", "href": "/contact" }
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "What Is Horseracing",
+        "href": "/what-is-horseracing"
+      },
+      {
+        "label": "Memorials",
+        "href": "/memorials"
+      },
+      {
+        "label": "Updates",
+        "href": "/updates"
+      },
+      {
+        "label": "Take Action",
+        "href": "/take-action"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
     ]
   },
   "footer": {
@@ -20,16 +41,31 @@
     "tagline": "A grassroots movement to end horse racing and protect horses in India.",
     "copyright": "All rights reserved.",
     "links": [
-      { "label": "Privacy Policy", "href": "/privacy" },
-      { "label": "Terms", "href": "/terms" },
-      { "label": "Contact", "href": "/contact" }
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy"
+      },
+      {
+        "label": "Terms",
+        "href": "/terms"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
     ]
   },
   "hero": {
-    "title": "Every Horse Deserve Freedom",
+    "title": "Every Horse Deserv Freedom",
     "subtitle": "Behind every race is a story of exploitation. Behind every statistic is a life lost.",
-    "primary": { "label": "Take Action", "href": "/take-action" },
-    "secondary": { "label": "View Memorials", "href": "/memorials" },
+    "primary": {
+      "label": "Take Action",
+      "href": "/take-action"
+    },
+    "secondary": {
+      "label": "View Memorials",
+      "href": "/memorials"
+    },
     "images": {
       "left": "/pages/home/hero/injured-racing-horse.jpg",
       "right": "/pages/home/hero/wild-horse-running-free-in-nature.jpg",
@@ -42,19 +78,28 @@
       {
         "title": "Take the Pledge",
         "text": "Commit to ending your support of horse racing and join thousands who stand for change.",
-        "button": { "label": "Go to Pledge", "href": "/take-action#pledge" }
+        "button": {
+          "label": "Go to Pledge",
+          "href": "/take-action#pledge"
+        }
       },
       {
         "title": "Volunteer With Us",
         "text": "Help us plan the next steps in this movement. Share your skills and passion.",
-        "button": { "label": "Volunteer Now", "href": "/take-action#volunteer" }
+        "button": {
+          "label": "Volunteer Now",
+          "href": "/take-action#volunteer"
+        }
       }
     ]
   },
   "updatesSection": {
     "title": "Latest Updates",
     "subtitle": "News and stories from the movement",
-    "button": { "label": "View All Updates", "href": "/updates" }
+    "button": {
+      "label": "View All Updates",
+      "href": "/updates"
+    }
   },
   "newsletter": {
     "title": "Stay Updated",

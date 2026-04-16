@@ -11,7 +11,9 @@ import { AddItemButton, RemoveItemButton } from "@/components/editable/list-cont
 import { useEditMode } from "@/components/editable/use-edit-mode"
 
 export default function WhatIsHorseracingPage() {
-  const [expandedIndex, setExpandedIndex] = useState(0)
+  // default: show all sections expanded for easier reading
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+  const [expandAll, setExpandAll] = useState(true)
   const [revealed, setRevealed] = useState<number[]>([])
   const { ready, enabled } = useEditMode()
 
@@ -44,88 +46,109 @@ export default function WhatIsHorseracingPage() {
           </div>
         </section>
 
-        <section className="py-20 md:py-32 px-6">
-          <div className="container mx-auto max-w-4xl space-y-4">
-            {content.sections.map((section, idx) => (
-              <div key={idx} className="rounded-xl border border-border/40 relative">
-                <RemoveItemButton file="data/pages/what-is-horseracing.json" path={["sections"]} index={idx} />
+        <section className="py-16 md:py-24 px-6">
+          <div className="container mx-auto max-w-5xl">
+            <div className="flex items-center justify-between mb-6">
+              <p className="text-sm text-muted-foreground">Sections: {content.sections.length}</p>
+              <div className="flex items-center gap-3">
                 <button
-                  onClick={() => setExpandedIndex(expandedIndex === idx ? -1 : idx)}
-                  className="w-full px-6 py-6 text-left flex items-start"
+                  className="text-sm text-primary underline"
+                  onClick={() => setExpandAll((s) => !s)}
                 >
-                  <div className="flex-1">
-                    <EditableText
-                      file="data/pages/what-is-horseracing.json"
-                      path={["sections", idx, "title"]}
-                      value={section.title}
-                      as="h2"
-                      className="text-2xl font-bold"
-                    />
-                  </div>
-                  <ChevronDown
-                    className={`w-6 h-6 transition-transform ${
-                      expandedIndex === idx ? "rotate-180" : ""
-                    }`}
-                  />
+                  {expandAll ? "Collapse all" : "Expand all"}
                 </button>
-
-                {expandedIndex === idx && (
-                  <div className="px-6 pb-6 space-y-6">
-                    {(section.image || (ready && enabled)) && (
-                      <div className="relative">
-                        <EditableImage
-                          file="data/pages/what-is-horseracing.json"
-                          path={["sections", idx, "image"]}
-                          src={section.image || ""}
-                          alt={section.title}
-                          uploadDir="pages/what-is-horseracing/sections"
-                          uploadName={section.title}
-                          placeholderText="No image available"
-                          className={`w-full rounded-lg object-cover transition-all duration-300 ${
-                            section.blur && !revealed.includes(idx) ? "blur-md" : ""
-                          }`}
-                        />
-
-                        {section.blur && !revealed.includes(idx) && (
-                          <button
-                            onClick={() => setRevealed((prev) => [...prev, idx])}
-                            className="absolute inset-0 flex items-center justify-center"
-                          >
-                            <span className="bg-black/70 text-white text-sm px-4 py-2 rounded">
-                              Sensitive content â€” tap to reveal
-                            </span>
-                          </button>
-                        )}
-                      </div>
-                    )}
-
-                    {section.youtubeId && (
-                      <iframe
-                        className="w-full aspect-video rounded-lg"
-                        src={`https://www.youtube.com/embed/${section.youtubeId}`}
-                        allowFullScreen
-                      />
-                    )}
-
-                    <EditableText
-                      file="data/pages/what-is-horseracing.json"
-                      path={["sections", idx, "content"]}
-                      value={section.content}
-                      as="div"
-                      multiline
-                      className="text-lg text-muted-foreground leading-relaxed tracking-normal whitespace-pre-line"
-                    />
-                  </div>
+                {ready && enabled && (
+                  <AddItemButton
+                    file="data/pages/what-is-horseracing.json"
+                    path={["sections"]}
+                    label="+ Add Section"
+                    template={{ title: "New Section", content: "", image: "", youtubeId: "" }}
+                  />
                 )}
               </div>
-            ))}
+            </div>
 
-            <AddItemButton
-              file="data/pages/what-is-horseracing.json"
-              path={["sections"]}
-              label="+ Add Section"
-              template={{ title: "New Section", content: "", image: "", youtubeId: "" }}
-            />
+            <div className="space-y-8">
+              {content.sections.map((section, idx) => {
+                const isOpen = expandAll || expandedIndex === idx
+                return (
+                  <article key={idx} className="grid md:grid-cols-3 gap-6 items-start">
+                    <div className="md:col-span-1">
+                      {(section.image || (ready && enabled)) && (
+                        <div className="mb-4">
+                          <EditableImage
+                            file="data/pages/what-is-horseracing.json"
+                            path={["sections", idx, "image"]}
+                            src={section.image || ""}
+                            alt={section.title}
+                            uploadDir="pages/what-is-horseracing/sections"
+                            uploadName={section.title}
+                            placeholderText="No image available"
+                            className={`w-full h-44 md:h-56 rounded-lg object-cover transition-all duration-300 ${
+                              section.blur && !revealed.includes(idx) ? "blur-md" : ""
+                            }`}
+                          />
+
+                          {section.blur && !revealed.includes(idx) && (
+                            <button
+                              onClick={() => setRevealed((prev) => [...prev, idx])}
+                              className="mt-2 text-xs text-muted-foreground"
+                            >
+                              Reveal sensitive image
+                            </button>
+                          )}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <header className="flex items-start justify-between">
+                        <EditableText
+                          file="data/pages/what-is-horseracing.json"
+                          path={["sections", idx, "title"]}
+                          value={section.title}
+                          as="h3"
+                          className="font-serif text-2xl md:text-3xl font-bold leading-tight"
+                        />
+
+                        <button
+                          onClick={() => setExpandedIndex(expandedIndex === idx ? null : idx)}
+                          aria-expanded={isOpen}
+                          className="ml-4 text-muted-foreground"
+                        >
+                          <ChevronDown className={`w-6 h-6 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        </button>
+                      </header>
+
+                      <div className="mt-4 text-lg md:text-xl leading-relaxed text-muted-foreground prose prose-lg max-w-none">
+                        {section.youtubeId && (
+                          <iframe
+                            className="w-full aspect-video rounded-lg mb-4"
+                            src={`https://www.youtube.com/embed/${section.youtubeId}`}
+                            allowFullScreen
+                          />
+                        )}
+
+                        <EditableText
+                          file="data/pages/what-is-horseracing.json"
+                          path={["sections", idx, "content"]}
+                          value={section.content}
+                          as="div"
+                          multiline
+                          className="whitespace-pre-line"
+                        />
+                      </div>
+
+                      {ready && enabled && (
+                        <div className="mt-4">
+                          <RemoveItemButton file="data/pages/what-is-horseracing.json" path={["sections"]} index={idx} />
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
           </div>
         </section>
       </main>
