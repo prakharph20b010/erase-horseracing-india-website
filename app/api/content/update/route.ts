@@ -38,7 +38,7 @@ export async function POST(request: Request) {
   const body = await request.json()
   const file = String(body.file || "")
   const pathParts = body.path as Array<string | number>
-  let value: any = String(body.value ?? "")
+  let value: any = body.value
 
   if (!file.startsWith("data/") || !file.endsWith(".json")) {
     return new Response("Invalid file", { status: 400 })
@@ -58,8 +58,10 @@ export async function POST(request: Request) {
   const current = getDeep(json, pathParts)
 
   if (typeof current === "number") {
-    const num = Number(value)
+    const num = typeof value === "number" ? value : Number(value)
     if (Number.isFinite(num)) value = num
+  } else if (typeof current === "string" && typeof value !== "string") {
+    value = String(value ?? "")
   }
 
   setDeep(json, pathParts, value)

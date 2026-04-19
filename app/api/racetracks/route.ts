@@ -20,21 +20,37 @@ export async function POST(request: Request) {
       existing = raw ? JSON.parse(raw) : []
     }
 
-    const id = String(Date.now())
+    const max = existing.reduce((acc, item) => {
+      const n = Number.parseInt(String(item?.id ?? ""), 10)
+      if (!Number.isFinite(n)) return acc
+      return Math.max(acc, n)
+    }, 0)
+    const id = String(max + 1 || Date.now())
     const now = new Date().toISOString().split("T")[0]
+
+    const name = String(body.name ?? "").trim()
+    if (!name) {
+      return new Response("Name is required", { status: 400 })
+    }
+
+    const latitude = Number(body.latitude)
+    const longitude = Number(body.longitude)
+    if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+      return new Response("Latitude/longitude are required", { status: 400 })
+    }
+
     const next = {
       id,
-      name: body.name || null,
-      city: body.city || null,
-      state: body.state || null,
-      latitude: body.latitude ?? null,
-      longitude: body.longitude ?? null,
-      description: body.description || null,
+      name,
+      city: String(body.city ?? "").trim(),
+      state: String(body.state ?? "").trim(),
+      latitude,
+      longitude,
+      description: body.description ? String(body.description) : null,
       total_deaths: Number(body.total_deaths) || 0,
-      status: body.status || "active",
+      status: body.status === "closed" ? "closed" : "active",
       created_at: now,
       updated_at: now,
-      image_url: body.image_url || null,
     }
 
     existing.push(next)

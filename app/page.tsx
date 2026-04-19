@@ -19,6 +19,8 @@ import memorialsData from "@/data/memorials.json"
 import racetracksData from "@/data/racetracks.json"
 import postsData from "@/data/posts.json"
 import { EditableText } from "@/components/editable/editable-text"
+import { EditOnly } from "@/components/editable/edit-only"
+import RacetrackAddForm from "@/components/editable/racetrack-add-form"
 
 const featuredHorses = (memorialsData as Horse[]).slice(0, 3)
 const featuredRacetracks = racetracksData as Racetrack[]
@@ -87,6 +89,12 @@ export default function HomePage() {
 
             {/* Interactive map */}
             <InteractiveIndiaMap racetracks={racetracks} />
+            <EditOnly>
+              <RacetrackAddForm
+                racetracks={racetracks}
+                onAdded={(item) => setRacetracks((prev) => [...prev, item])}
+              />
+            </EditOnly>
 
           </div>
         </section>

@@ -18,7 +18,7 @@ export const setEditEnabled = (enabled: boolean) => {
 
 export type ContentPath = Array<string | number>
 
-export async function updateContent(file: string, path: ContentPath, value: string) {
+export async function updateContent(file: string, path: ContentPath, value: any) {
   if (!isLocalhost() || !isEditEnabled()) return
   await fetch("/api/content/update", {
     method: "POST",

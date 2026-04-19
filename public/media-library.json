@@ -1,5 +1,22 @@
 {
   "items": [
-    
+    {
+      "path": "/articles/sldk/image-1776348380103.png",
+      "name": "image-1776348380103.png",
+      "dir": "articles/sldk",
+      "uploadedAt": "2026-04-16T14:06:20.106Z"
+    },
+    {
+      "path": "/articles/sldk/cover-1776348188191.jpg",
+      "name": "cover-1776348188191.jpg",
+      "dir": "articles/sldk",
+      "uploadedAt": "2026-04-16T14:03:08.195Z"
+    },
+    {
+      "path": "/articles/sldj/cover-1776307344872.png",
+      "name": "cover-1776307344872.png",
+      "dir": "articles/sldj",
+      "uploadedAt": "2026-04-16T02:42:24.886Z"
+    }
   ]
 }

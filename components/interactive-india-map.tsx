@@ -53,7 +53,7 @@ export function InteractiveIndiaMap({ racetracks }: InteractiveIndiaMapProps) {
                   <div className="max-w-xs">
                     <div className="font-semibold">{t.name}</div>
                     <div className="text-sm text-muted-foreground">
-                      {t.city}{t.state ? `, ${t.state}` : ""}
+                      {(t as any).city ?? ""}{(t as any).state ? `, ${(t as any).state}` : ""}
                     </div>
                     <div className="mt-2 font-bold text-destructive">{t.total_deaths} deaths</div>
                   </div>

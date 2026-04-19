@@ -8,6 +8,7 @@ import postsData from "@/data/posts.json"
 import { EditableText } from "@/components/editable/editable-text"
 import { EditableImage } from "@/components/editable/editable-image"
 import { AddItemButton, RemoveItemButton } from "@/components/editable/list-controls"
+import { EditOnly } from "@/components/editable/edit-only"
 
 interface UpdatesSectionProps {
   posts: BlogPost[]
@@ -47,6 +48,14 @@ export function UpdatesSection({ posts }: UpdatesSectionProps) {
                 {typeof idx === "number" && (
                   <RemoveItemButton file="data/posts.json" path={[]} index={idx} />
                 )}
+                <EditOnly>
+                  <Link
+                    href={`/updates`}
+                    className="absolute top-2 left-2 z-30 rounded bg-black/70 px-2 py-1 text-[10px] font-semibold text-white"
+                  >
+                    Edit
+                  </Link>
+                </EditOnly>
                 <div className="aspect-video w-full overflow-hidden bg-muted flex items-center justify-center">
                   {typeof idx === "number" ? (
                     <EditableImage
@@ -54,8 +63,8 @@ export function UpdatesSection({ posts }: UpdatesSectionProps) {
                       path={[idx, "image_url"]}
                       src={post.image_url || ""}
                       alt={post.title}
-                      uploadDir="pages/updates/cards"
-                      uploadName={post.slug || post.title}
+                      uploadDir={`articles/${post.slug}`}
+                      uploadName="cover"
                       placeholderText="No image available"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
@@ -150,8 +159,9 @@ export function UpdatesSection({ posts }: UpdatesSectionProps) {
             title: "New Update Title",
             slug: `new-update-${Date.now()}`,
             excerpt: "Short summary...",
-            content: "Full content...",
-            image_url: "",
+            content: "",
+            blocks: [{ id: String(Date.now()), type: "paragraph", text: "Write your update..." }],
+            image_url: null,
             published: true,
             published_at: new Date().toISOString().slice(0, 10),
             author: "Erase Horseracing India",
@@ -162,7 +172,6 @@ export function UpdatesSection({ posts }: UpdatesSectionProps) {
             { path: "title", label: "Title" },
             { path: "slug", label: "Slug (url part)" },
             { path: "excerpt", label: "Excerpt" },
-            { path: "content", label: "Content" },
             { path: "author", label: "Author" },
           ]}
         />

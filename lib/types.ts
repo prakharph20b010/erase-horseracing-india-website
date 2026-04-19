@@ -33,12 +33,21 @@ export interface BlogPost {
   excerpt: string | null
   content: string
   image_url: string | null
+  blocks?: PostBlock[]
   published: boolean
   published_at: string | null
   author: string
   created_at: string
   updated_at: string
 }
+
+export type PostBlock =
+  | { id: string; type: "heading"; level: 1 | 2 | 3; text: string }
+  | { id: string; type: "paragraph"; text: string }
+  | { id: string; type: "quote"; text: string }
+  | { id: string; type: "list"; ordered: boolean; items: string[] }
+  | { id: string; type: "image"; src: string; alt?: string; caption?: string; width?: "narrow" | "wide" | "full" }
+  | { id: string; type: "divider" }
 
 export interface Pledge {
   id: string
